@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Piece {
+  height: 100px;
+}
+
+.PieceImage {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+td {
+  width: 200px;
+  height: 200px;
+  outline: 50px black;
+  color: black;
+  align: center;
+  display: flex;
+}
+
+.Table {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Nine_Men%27s_Morris_board_with_coordinates%2C_modified.svg/220px-Nine_Men%27s_Morris_board_with_coordinates%2C_modified.svg.png"); */
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  outline: 50px black;
+}
+
+.TableContainer {
+  align: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.gameStats {
+  background-color: #5773ac;
+  max-height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.RuleButton {
+  background-color: #5773ac;
+  max-height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+button {
+  background-color: #d3ddf1;
+  max-height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: black;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
