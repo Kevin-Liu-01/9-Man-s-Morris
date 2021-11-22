@@ -51,10 +51,29 @@
 td {
   width: 200px;
   height: 200px;
-  outline: 50px black;
+  /* border: 1px solid black; */
   color: black;
   align: center;
   display: flex;
+  /* background-color: #7994cc; */
+}
+
+.horizDiv {
+  border: 1px solid black;
+}
+
+.vertDiv {
+  border: 1px solid black;
+}
+
+.vertContainer {
+  align: center;
+  justify-content: center;
+}
+.horizContainer {
+  align: center;
+  justify-content: center;
+  transform: rotate(90deg);
 }
 
 .Table {
@@ -66,7 +85,7 @@ td {
   object-fit: contain;
   width: 100%;
   height: 100%;
-  outline: 50px black;
+  padding: 2rem;
 }
 
 .TableContainer {

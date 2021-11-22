@@ -4881,10 +4881,10 @@ function App() {
     }
     if (playerStatus % 2 === 0) {
       setPlayerController(2);
-      return <div>Player 2, Part {roundStatus}</div>;
+      return <div>Player 1, Part {roundStatus}</div>;
     } else {
       setPlayerController(1);
-      return <div>Player 1, Part {roundStatus}</div>;
+      return <div>Player 2, Part {roundStatus}</div>;
     }
   };
 
@@ -4895,10 +4895,10 @@ function App() {
   const finalState = () => {
     return (
       <div>
-        <header className="App-header">9 Man's Morris</header>
+        <header className="App-header">9 Man's Morris: Crazy Mills</header>
         <div class="gameStats">
-          <div>Player 1: Red; Captured {blueRemoved} Men</div>
-          <div>Player 2: Blue; Captured {redRemoved} Men</div>
+          <div>Player 1: Blue; Captured {blueRemoved} Men</div>
+          <div>Player 2: Red; Captured {redRemoved} Men</div>
           <div>
             <Player />
             Move: {playerStatus}
@@ -4916,40 +4916,60 @@ function App() {
                 1
                 <Plate1 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 2
                 <Plate2 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 3
                 <Plate3 />
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
               <td>
                 4
                 <Plate4 />
               </td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 5
                 <Plate5 />
               </td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 6
                 <Plate6 />
               </td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
               <td>
                 7
                 <Plate7 />
@@ -4962,8 +4982,12 @@ function App() {
                 9
                 <Plate9 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
             </tr>
             <tr>
               <td>
@@ -4993,8 +5017,12 @@ function App() {
               </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
               <td>
                 16
                 <Plate16 />
@@ -5007,27 +5035,39 @@ function App() {
                 18
                 <Plate18 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
             </tr>
 
             <tr>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
               <td>
                 19
                 <Plate19 />
               </td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 20
                 <Plate20 />
               </td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 21
                 <Plate21 />
               </td>
-              <td></td>
+              <td class="horizContainer">
+                <div class="horizDiv"></div>
+              </td>
             </tr>
 
             <tr>
@@ -5035,14 +5075,22 @@ function App() {
                 22
                 <Plate22 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 23
                 <Plate23 />
               </td>
-              <td></td>
-              <td></td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
+              <td class="vertContainer">
+                <div class="vertDiv"></div>
+              </td>
               <td>
                 24
                 <Plate24 />
