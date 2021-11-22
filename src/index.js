@@ -14,14 +14,21 @@ ReactDOM.render(
         rel="stylesheet"
       />
     </head>
-    <div
+    <body
       style={{
         backgroundColor: "#bac7e0",
         fontFamily: "Shippori Antique, sans-serif",
       }}
     >
-      <App />
-    </div>
+      <div
+        style={{
+          backgroundColor: "#bac7e0",
+          fontFamily: "Shippori Antique, sans-serif",
+        }}
+      >
+        <App />
+      </div>
+    </body>
   </React.StrictMode>,
   document.getElementById("root")
 );

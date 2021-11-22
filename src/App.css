@@ -39,7 +39,7 @@
 }
 
 .Piece {
-  height: 100px;
+  height: 2rem;
 }
 
 .PieceImage {
@@ -53,17 +53,19 @@ td {
   height: 200px;
   /* border: 1px solid black; */
   color: black;
-  align: center;
+
   display: flex;
   /* background-color: #7994cc; */
 }
 
 .horizDiv {
-  border: 1px solid black;
+  border: 0.1rem solid black;
+  background-color: #7994cc;
 }
 
 .vertDiv {
-  border: 1px solid black;
+  border: 0.1rem solid black;
+  background-color: #7994cc;
 }
 
 .vertContainer {

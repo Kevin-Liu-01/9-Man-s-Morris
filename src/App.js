@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Blue from "./Images/Blue.png";
 import Red from "./Images/Red.png";
@@ -6,8 +5,7 @@ import None from "./Images/None.png";
 import green from "./Images/green.png";
 import lightgreen from "./Images/lightgreen.png";
 
-import React, { useState, useEffect, useReducer } from "react";
-import { render, screen } from "@testing-library/react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   //Game States
@@ -4881,9 +4879,13 @@ function App() {
     }
     if (playerStatus % 2 === 0) {
       setPlayerController(2);
+      console.log(playerController);
+
       return <div>Player 1, Part {roundStatus}</div>;
     } else {
       setPlayerController(1);
+      console.log(playerController);
+
       return <div>Player 2, Part {roundStatus}</div>;
     }
   };
@@ -5113,7 +5115,7 @@ function App() {
                 players must place down men one by one until each player has
                 placed down 9 of their own men. From then on, in the second
                 part, each player takes turns moving their men to create mills
-                and take away their opponents' men.
+                and capture their opponents' men.
               </div>
               <div>
                 Move your men by tapping their respective circle, and the areas
@@ -5125,9 +5127,9 @@ function App() {
                 mills.
               </div>
               <div>
-                If you form a mill, you will either be able to select a man to
-                capture, or an event will occur where men will randomly be
-                captured - either yours or the enemies'.
+                If you form a mill, the screen will turn yellow. You will either
+                be able to select a man to capture, or an event will occur where
+                men will randomly be captured - either yours or the enemies'.
               </div>
             </div>
           )}
