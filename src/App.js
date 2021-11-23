@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 function App() {
   //Game States
   const [playerStatus, setPlayerStatus] = useState(0);
+  const [roundColor, setRoundColor] = useState(None);
   const [roundStatus, setRoundStatus] = useState(1);
   const [victor, setVictor] = useState(0);
   const [playerController, setPlayerController] = useState(1);
@@ -345,6 +346,7 @@ function App() {
       hasMilled1 === false &&
       hasMilled3 === false &&
       clickStatus1 === true &&
+      roundColor === imageColor1 &&
       imageColor1 !== (millColor && None)
     ) {
       if (imageColor1 === Red) {
@@ -422,53 +424,55 @@ function App() {
         } else if (imageColor1 === green) {
           setImageColor1(lightgreen);
         }
+        if (roundColor === imageColor1) {
+          if (
+            millStatus === true &&
+            (imageColor1 === millColor || imageColor1 === None)
+          ) {
+          } else if (
+            hasPiece2 === false &&
+            clickStatus2 === true &&
+            imageColor1 !== None &&
+            imageColor2 === lightgreen
+          ) {
+            setImageColor2(imageColor1);
+            setImageColor1(None);
+            setHasPiece1(false);
+            setHasPiece2(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled3(false);
+            setClickStatus1(false);
+            setClickStatus2(false);
+          } else if (
+            hasPiece10 === false &&
+            clickStatus10 === true &&
+            imageColor1 !== None &&
+            imageColor10 === lightgreen
+          ) {
+            setImageColor10(imageColor1);
+            setImageColor1(None);
+            setHasPiece1(false);
+            setHasPiece10(true);
+            setHasMilled1(false);
+            setHasMilled3(false);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus1(false);
+            setClickStatus10(false);
+          }
 
-        if (
-          millStatus === true &&
-          (imageColor1 === millColor || imageColor1 === None)
-        ) {
-        } else if (
-          hasPiece2 === false &&
-          clickStatus2 === true &&
-          imageColor1 !== None &&
-          imageColor2 === lightgreen
-        ) {
-          setImageColor2(imageColor1);
-          setImageColor1(None);
-          setHasPiece1(false);
-          setHasPiece2(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled3(false);
-          setClickStatus1(false);
-          setClickStatus2(false);
-        } else if (
-          hasPiece10 === false &&
-          clickStatus10 === true &&
-          imageColor1 !== None &&
-          imageColor10 === lightgreen
-        ) {
-          setImageColor10(imageColor1);
-          setImageColor1(None);
-          setHasPiece1(false);
-          setHasPiece10(true);
-          setHasMilled1(false);
-          setHasMilled3(false);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus1(false);
-          setClickStatus10(false);
-        }
+          if (imageColor2 === lightgreen && imageColor10 === lightgreen) {
+            setImageColor2(None);
 
-        if (imageColor2 === lightgreen && imageColor10 === lightgreen) {
-          setImageColor2(None);
+            setImageColor1(imageColor1);
+            setImageColor10(None);
 
-          setImageColor1(imageColor1);
-          setImageColor10(None);
-
-          setClickStatus2(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setHasPiece2(false);
+            setClickStatus2(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setHasPiece2(false);
+          }
+        } else {
         }
       };
 
@@ -494,6 +498,7 @@ function App() {
       clickStatus2 === true &&
       hasMilled3 === false &&
       hasMilled8 === false &&
+      roundColor === imageColor2 &&
       imageColor2 !== (millColor && None)
     ) {
       if (imageColor2 === Red) {
@@ -584,95 +589,98 @@ function App() {
         } else if (imageColor2 === green) {
           setImageColor2(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor2 === millColor || imageColor2 === None)
-        ) {
-        } else if (
-          hasPiece1 === false &&
-          clickStatus1 === true &&
-          imageColor2 !== None &&
-          imageColor1 === lightgreen
-        ) {
-          setImageColor1(imageColor2);
-          setImageColor2(None);
-          setHasPiece2(false);
-          setHasPiece1(true);
-          setHasMilled8(false);
-          setHasMilled3(false);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus2(false);
-          setClickStatus1(false);
-        } else if (
-          hasPiece3 === false &&
-          clickStatus3 === true &&
-          imageColor2 !== None &&
-          imageColor3 === lightgreen
-        ) {
-          setImageColor3(imageColor2);
-          setImageColor2(None);
-          setHasPiece2(false);
-          setHasPiece3(true);
-          setHasMilled8(false);
-          setHasMilled3(false);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus2(false);
-          setClickStatus3(false);
-        } else if (
-          hasPiece5 === false &&
-          clickStatus5 === true &&
-          imageColor2 !== None &&
-          imageColor5 === lightgreen
-        ) {
-          setImageColor5(imageColor2);
-          setImageColor2(None);
-          setHasPiece2(false);
-          setHasPiece5(true);
-          setHasMilled8(false);
-          setHasMilled3(false);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus2(false);
-          setClickStatus5(false);
-        }
+        if (roundColor === imageColor2) {
+          if (
+            millStatus === true &&
+            (imageColor2 === millColor || imageColor2 === None)
+          ) {
+          } else if (
+            hasPiece1 === false &&
+            clickStatus1 === true &&
+            imageColor2 !== None &&
+            imageColor1 === lightgreen
+          ) {
+            setImageColor1(imageColor2);
+            setImageColor2(None);
+            setHasPiece2(false);
+            setHasPiece1(true);
+            setHasMilled8(false);
+            setHasMilled3(false);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus2(false);
+            setClickStatus1(false);
+          } else if (
+            hasPiece3 === false &&
+            clickStatus3 === true &&
+            imageColor2 !== None &&
+            imageColor3 === lightgreen
+          ) {
+            setImageColor3(imageColor2);
+            setImageColor2(None);
+            setHasPiece2(false);
+            setHasPiece3(true);
+            setHasMilled8(false);
+            setHasMilled3(false);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus2(false);
+            setClickStatus3(false);
+          } else if (
+            hasPiece5 === false &&
+            clickStatus5 === true &&
+            imageColor2 !== None &&
+            imageColor5 === lightgreen
+          ) {
+            setImageColor5(imageColor2);
+            setImageColor2(None);
+            setHasPiece2(false);
+            setHasPiece5(true);
+            setHasMilled8(false);
+            setHasMilled3(false);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus2(false);
+            setClickStatus5(false);
+          }
 
-        if (
-          imageColor5 === lightgreen &&
-          imageColor1 === lightgreen &&
-          imageColor3 === lightgreen
-        ) {
-          setImageColor5(None);
-          setImageColor2(imageColor2);
-          setImageColor1(None);
-          setImageColor3(None);
+          if (
+            imageColor5 === lightgreen &&
+            imageColor1 === lightgreen &&
+            imageColor3 === lightgreen
+          ) {
+            setImageColor5(None);
+            setImageColor2(imageColor2);
+            setImageColor1(None);
+            setImageColor3(None);
 
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus1(false);
-          setHasPiece1(false);
-        } else if (imageColor5 === lightgreen && imageColor1 === lightgreen) {
-          setImageColor5(None);
-          setImageColor2(imageColor2);
-          setImageColor1(None);
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus1(false);
-          setHasPiece1(false);
-        } else if (imageColor5 === lightgreen && imageColor3 === lightgreen) {
-          setImageColor5(None);
-          setImageColor2(imageColor2);
-          setImageColor3(None);
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus3(false);
-          setHasPiece3(false);
-        } else if (imageColor1 === lightgreen && imageColor3 === lightgreen) {
-          setImageColor3(None);
-          setImageColor2(imageColor2);
-          setImageColor1(None);
-          setClickStatus1(false);
-          setHasPiece1(false);
-          setClickStatus3(false);
-          setHasPiece3(false);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus1(false);
+            setHasPiece1(false);
+          } else if (imageColor5 === lightgreen && imageColor1 === lightgreen) {
+            setImageColor5(None);
+            setImageColor2(imageColor2);
+            setImageColor1(None);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus1(false);
+            setHasPiece1(false);
+          } else if (imageColor5 === lightgreen && imageColor3 === lightgreen) {
+            setImageColor5(None);
+            setImageColor2(imageColor2);
+            setImageColor3(None);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus3(false);
+            setHasPiece3(false);
+          } else if (imageColor1 === lightgreen && imageColor3 === lightgreen) {
+            setImageColor3(None);
+            setImageColor2(imageColor2);
+            setImageColor1(None);
+            setClickStatus1(false);
+            setHasPiece1(false);
+            setClickStatus3(false);
+            setHasPiece3(false);
+          }
+        } else {
         }
       };
       return (
@@ -691,6 +699,7 @@ function App() {
       clickStatus3 === true &&
       hasMilled3 === false &&
       hasMilled14 === false &&
+      roundColor === imageColor3 &&
       imageColor3 !== (millColor && None)
     ) {
       if (imageColor3 === Red) {
@@ -767,51 +776,54 @@ function App() {
         } else if (imageColor3 === green) {
           setImageColor3(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor3 === millColor || imageColor3 === None)
-        ) {
-        } else if (
-          hasPiece2 === false &&
-          clickStatus2 === true &&
-          imageColor3 !== None &&
-          imageColor2 === lightgreen
-        ) {
-          setImageColor2(imageColor3);
-          setImageColor3(None);
-          setHasPiece3(false);
-          setHasPiece2(true);
-          setHasMilled14(false);
-          setHasMilled3(false);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus3(false);
-          setClickStatus2(false);
-        } else if (
-          hasPiece15 === false &&
-          clickStatus15 === true &&
-          imageColor3 !== None &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor15(imageColor3);
-          setImageColor3(None);
-          setHasPiece3(false);
-          setHasMilled14(false);
-          setHasMilled3(false);
-          setHasPiece15(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus3(false);
-          setClickStatus15(false);
-        }
+        if (roundColor === imageColor3) {
+          if (
+            millStatus === true &&
+            (imageColor3 === millColor || imageColor3 === None)
+          ) {
+          } else if (
+            hasPiece2 === false &&
+            clickStatus2 === true &&
+            imageColor3 !== None &&
+            imageColor2 === lightgreen
+          ) {
+            setImageColor2(imageColor3);
+            setImageColor3(None);
+            setHasPiece3(false);
+            setHasPiece2(true);
+            setHasMilled14(false);
+            setHasMilled3(false);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus3(false);
+            setClickStatus2(false);
+          } else if (
+            hasPiece15 === false &&
+            clickStatus15 === true &&
+            imageColor3 !== None &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor15(imageColor3);
+            setImageColor3(None);
+            setHasPiece3(false);
+            setHasMilled14(false);
+            setHasMilled3(false);
+            setHasPiece15(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus3(false);
+            setClickStatus15(false);
+          }
 
-        if (imageColor2 === lightgreen && imageColor15 === lightgreen) {
-          setImageColor15(None);
-          setImageColor3(imageColor3);
-          setImageColor2(None);
+          if (imageColor2 === lightgreen && imageColor15 === lightgreen) {
+            setImageColor15(None);
+            setImageColor3(imageColor3);
+            setImageColor2(None);
 
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus2(false);
-          setHasPiece2(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus2(false);
+            setHasPiece2(false);
+          }
+        } else {
         }
       };
       return (
@@ -829,6 +841,7 @@ function App() {
       clickStatus4 === true &&
       hasMilled9 === false &&
       hasMilled16 === false &&
+      roundColor === imageColor4 &&
       imageColor4 !== (millColor && None)
     ) {
       if (imageColor4 === Red) {
@@ -905,48 +918,51 @@ function App() {
         } else if (imageColor4 === green) {
           setImageColor4(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor4 === millColor || imageColor4 === None)
-        ) {
-        } else if (
-          hasPiece5 === false &&
-          clickStatus5 === true &&
-          imageColor4 !== None &&
-          imageColor5 === lightgreen
-        ) {
-          setImageColor5(imageColor4);
-          setImageColor4(None);
-          setHasPiece4(false);
-          setHasMilled16(false);
-          setHasMilled9(false);
-          setHasPiece5(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus4(false);
-          setClickStatus5(false);
-        } else if (
-          hasPiece11 === false &&
-          clickStatus11 === true &&
-          imageColor4 !== None &&
-          imageColor11 === lightgreen
-        ) {
-          setImageColor11(imageColor4);
-          setImageColor4(None);
-          setHasPiece4(false);
-          setHasMilled16(false);
-          setHasMilled9(false);
-          setHasPiece11(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus4(false);
-          setClickStatus11(false);
-        }
-        if (imageColor5 === lightgreen && imageColor11 === lightgreen) {
-          setImageColor5(None);
-          setImageColor4(imageColor4);
-          setImageColor11(None);
+        if (roundColor === imageColor4) {
+          if (
+            millStatus === true &&
+            (imageColor4 === millColor || imageColor4 === None)
+          ) {
+          } else if (
+            hasPiece5 === false &&
+            clickStatus5 === true &&
+            imageColor4 !== None &&
+            imageColor5 === lightgreen
+          ) {
+            setImageColor5(imageColor4);
+            setImageColor4(None);
+            setHasPiece4(false);
+            setHasMilled16(false);
+            setHasMilled9(false);
+            setHasPiece5(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus4(false);
+            setClickStatus5(false);
+          } else if (
+            hasPiece11 === false &&
+            clickStatus11 === true &&
+            imageColor4 !== None &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor11(imageColor4);
+            setImageColor4(None);
+            setHasPiece4(false);
+            setHasMilled16(false);
+            setHasMilled9(false);
+            setHasPiece11(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus4(false);
+            setClickStatus11(false);
+          }
+          if (imageColor5 === lightgreen && imageColor11 === lightgreen) {
+            setImageColor5(None);
+            setImageColor4(imageColor4);
+            setImageColor11(None);
 
-          setClickStatus5(false);
-          setHasPiece5(false);
+            setClickStatus5(false);
+            setHasPiece5(false);
+          }
+        } else {
         }
       };
       return (
@@ -967,6 +983,7 @@ function App() {
       clickStatus5 === true &&
       hasMilled8 === false &&
       hasMilled9 === false &&
+      roundColor === imageColor5 &&
       imageColor5 !== (millColor && None)
     ) {
       if (imageColor5 === Red) {
@@ -1072,201 +1089,204 @@ function App() {
         } else if (imageColor5 === green) {
           setImageColor5(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor5 === millColor || imageColor5 === None)
-        ) {
-        } else if (
-          hasPiece4 === false &&
-          clickStatus4 === true &&
-          imageColor5 !== None &&
-          imageColor4 === lightgreen
-        ) {
-          setImageColor4(imageColor5);
-          setImageColor5(None);
-          setHasPiece5(false);
-          setHasMilled8(false);
-          setHasMilled9(false);
-          setHasPiece4(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus5(false);
-          setClickStatus4(false);
-        } else if (
-          hasPiece2 === false &&
-          clickStatus2 === true &&
-          imageColor5 !== None &&
-          imageColor2 === lightgreen
-        ) {
-          setImageColor2(imageColor5);
-          setImageColor5(None);
-          setHasPiece5(false);
-          setHasMilled8(false);
-          setHasMilled9(false);
-          setHasPiece2(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus5(false);
-          setClickStatus2(false);
-        } else if (
-          hasPiece8 === false &&
-          clickStatus8 === true &&
-          imageColor5 !== None &&
-          imageColor8 === lightgreen
-        ) {
-          setImageColor8(imageColor5);
-          setImageColor5(None);
-          setHasPiece5(false);
-          setHasMilled8(false);
-          setHasMilled9(false);
-          setHasPiece8(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus5(false);
-          setClickStatus8(false);
-        } else if (
-          hasPiece6 === false &&
-          clickStatus6 === true &&
-          imageColor5 !== None &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor6(imageColor5);
-          setImageColor5(None);
-          setHasPiece5(false);
-          setHasMilled8(false);
-          setHasMilled9(false);
-          setHasPiece6(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus5(false);
-          setClickStatus6(false);
-        }
+        if (roundColor === imageColor5) {
+          if (
+            millStatus === true &&
+            (imageColor5 === millColor || imageColor5 === None)
+          ) {
+          } else if (
+            hasPiece4 === false &&
+            clickStatus4 === true &&
+            imageColor5 !== None &&
+            imageColor4 === lightgreen
+          ) {
+            setImageColor4(imageColor5);
+            setImageColor5(None);
+            setHasPiece5(false);
+            setHasMilled8(false);
+            setHasMilled9(false);
+            setHasPiece4(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus5(false);
+            setClickStatus4(false);
+          } else if (
+            hasPiece2 === false &&
+            clickStatus2 === true &&
+            imageColor5 !== None &&
+            imageColor2 === lightgreen
+          ) {
+            setImageColor2(imageColor5);
+            setImageColor5(None);
+            setHasPiece5(false);
+            setHasMilled8(false);
+            setHasMilled9(false);
+            setHasPiece2(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus5(false);
+            setClickStatus2(false);
+          } else if (
+            hasPiece8 === false &&
+            clickStatus8 === true &&
+            imageColor5 !== None &&
+            imageColor8 === lightgreen
+          ) {
+            setImageColor8(imageColor5);
+            setImageColor5(None);
+            setHasPiece5(false);
+            setHasMilled8(false);
+            setHasMilled9(false);
+            setHasPiece8(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus5(false);
+            setClickStatus8(false);
+          } else if (
+            hasPiece6 === false &&
+            clickStatus6 === true &&
+            imageColor5 !== None &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor6(imageColor5);
+            setImageColor5(None);
+            setHasPiece5(false);
+            setHasMilled8(false);
+            setHasMilled9(false);
+            setHasPiece6(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus5(false);
+            setClickStatus6(false);
+          }
 
-        if (
-          imageColor4 === lightgreen &&
-          imageColor2 === lightgreen &&
-          imageColor8 === lightgreen &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor2(None);
-          setImageColor8(None);
-          setImageColor6(None);
+          if (
+            imageColor4 === lightgreen &&
+            imageColor2 === lightgreen &&
+            imageColor8 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor2(None);
+            setImageColor8(None);
+            setImageColor6(None);
 
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus2(false);
-          setHasPiece2(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor2 === lightgreen &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor2(None);
-          setImageColor6(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus2(false);
+            setHasPiece2(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor2 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor2(None);
+            setImageColor6(None);
 
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus2(false);
-          setHasPiece2(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (
-          imageColor8 === lightgreen &&
-          imageColor2 === lightgreen &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor8(None);
-          setImageColor5(imageColor5);
-          setImageColor2(None);
-          setImageColor6(None);
-          setClickStatus2(false);
-          setHasPiece2(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor2 === lightgreen &&
-          imageColor8 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor2(None);
-          setImageColor8(None);
-          setClickStatus2(false);
-          setHasPiece2(false);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor6 === lightgreen &&
-          imageColor8 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor6(None);
-          setImageColor8(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-        } else if (imageColor4 === lightgreen && imageColor2 === lightgreen) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor2(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus2(false);
-          setHasPiece2(false);
-        } else if (imageColor4 === lightgreen && imageColor8 === lightgreen) {
-          setImageColor4(None);
-          setImageColor5(imageColor5);
-          setImageColor8(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-        } else if (imageColor2 === lightgreen && imageColor8 === lightgreen) {
-          setImageColor2(None);
-          setImageColor5(imageColor5);
-          setImageColor8(None);
-          setClickStatus2(false);
-          setHasPiece2(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
-        } else if (imageColor2 === lightgreen && imageColor6 === lightgreen) {
-          setImageColor2(None);
-          setImageColor5(imageColor5);
-          setImageColor6(None);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus2(false);
-          setHasPiece2(false);
-        } else if (imageColor6 === lightgreen && imageColor4 === lightgreen) {
-          setImageColor6(None);
-          setImageColor5(imageColor5);
-          setImageColor4(None);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus4(false);
-          setHasPiece4(false);
-        } else if (imageColor6 === lightgreen && imageColor8 === lightgreen) {
-          setImageColor6(None);
-          setImageColor5(imageColor5);
-          setImageColor8(None);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus2(false);
+            setHasPiece2(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor8 === lightgreen &&
+            imageColor2 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor8(None);
+            setImageColor5(imageColor5);
+            setImageColor2(None);
+            setImageColor6(None);
+            setClickStatus2(false);
+            setHasPiece2(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor2 === lightgreen &&
+            imageColor8 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor2(None);
+            setImageColor8(None);
+            setClickStatus2(false);
+            setHasPiece2(false);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor6 === lightgreen &&
+            imageColor8 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor6(None);
+            setImageColor8(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          } else if (imageColor4 === lightgreen && imageColor2 === lightgreen) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor2(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus2(false);
+            setHasPiece2(false);
+          } else if (imageColor4 === lightgreen && imageColor8 === lightgreen) {
+            setImageColor4(None);
+            setImageColor5(imageColor5);
+            setImageColor8(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          } else if (imageColor2 === lightgreen && imageColor8 === lightgreen) {
+            setImageColor2(None);
+            setImageColor5(imageColor5);
+            setImageColor8(None);
+            setClickStatus2(false);
+            setHasPiece2(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          } else if (imageColor2 === lightgreen && imageColor6 === lightgreen) {
+            setImageColor2(None);
+            setImageColor5(imageColor5);
+            setImageColor6(None);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus2(false);
+            setHasPiece2(false);
+          } else if (imageColor6 === lightgreen && imageColor4 === lightgreen) {
+            setImageColor6(None);
+            setImageColor5(imageColor5);
+            setImageColor4(None);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus4(false);
+            setHasPiece4(false);
+          } else if (imageColor6 === lightgreen && imageColor8 === lightgreen) {
+            setImageColor6(None);
+            setImageColor5(imageColor5);
+            setImageColor8(None);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          }
+        } else {
         }
       };
       return (
@@ -1286,6 +1306,7 @@ function App() {
       clickStatus6 === true &&
       hasMilled9 === false &&
       hasMilled13 === false &&
+      roundColor === imageColor6 &&
       imageColor6 !== (millColor && None)
     ) {
       if (imageColor6 === Red) {
@@ -1362,49 +1383,52 @@ function App() {
         } else if (imageColor6 === green) {
           setImageColor6(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor6 === millColor || imageColor6 === None)
-        ) {
-        } else if (
-          hasPiece5 === false &&
-          clickStatus5 === true &&
-          imageColor6 !== None &&
-          imageColor5 === lightgreen
-        ) {
-          setImageColor5(imageColor6);
-          setImageColor6(None);
-          setHasPiece6(false);
-          setHasMilled13(false);
-          setHasMilled9(false);
-          setHasPiece5(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus6(false);
-          setClickStatus5(false);
-        } else if (
-          hasPiece14 === false &&
-          clickStatus14 === true &&
-          imageColor6 !== None &&
-          imageColor14 === lightgreen
-        ) {
-          setImageColor14(imageColor6);
-          setImageColor6(None);
-          setHasPiece6(false);
-          setHasMilled13(false);
-          setHasMilled9(false);
-          setHasPiece14(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus6(false);
-          setClickStatus14(false);
-        }
-        if (imageColor5 === lightgreen && imageColor14 === lightgreen) {
-          setImageColor5(None);
-          setImageColor6(imageColor6);
-          setImageColor14(None);
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus14(false);
-          setHasPiece14(false);
+        if (roundColor === imageColor6) {
+          if (
+            millStatus === true &&
+            (imageColor6 === millColor || imageColor6 === None)
+          ) {
+          } else if (
+            hasPiece5 === false &&
+            clickStatus5 === true &&
+            imageColor6 !== None &&
+            imageColor5 === lightgreen
+          ) {
+            setImageColor5(imageColor6);
+            setImageColor6(None);
+            setHasPiece6(false);
+            setHasMilled13(false);
+            setHasMilled9(false);
+            setHasPiece5(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus6(false);
+            setClickStatus5(false);
+          } else if (
+            hasPiece14 === false &&
+            clickStatus14 === true &&
+            imageColor6 !== None &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor14(imageColor6);
+            setImageColor6(None);
+            setHasPiece6(false);
+            setHasMilled13(false);
+            setHasMilled9(false);
+            setHasPiece14(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus6(false);
+            setClickStatus14(false);
+          }
+          if (imageColor5 === lightgreen && imageColor14 === lightgreen) {
+            setImageColor5(None);
+            setImageColor6(imageColor6);
+            setImageColor14(None);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus14(false);
+            setHasPiece14(false);
+          }
+        } else {
         }
       };
       return (
@@ -1424,6 +1448,7 @@ function App() {
       clickStatus7 === true &&
       hasMilled2 === false &&
       hasMilled5 === false &&
+      roundColor === imageColor7 &&
       imageColor7 !== (millColor && None)
     ) {
       if (imageColor7 === Red) {
@@ -1500,50 +1525,53 @@ function App() {
         } else if (imageColor7 === green) {
           setImageColor7(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor7 === millColor || imageColor7 === None)
-        ) {
-        } else if (
-          hasPiece12 === false &&
-          clickStatus12 === true &&
-          imageColor7 !== None &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor12(imageColor7);
-          setImageColor7(None);
-          setHasPiece7(false);
-          setHasMilled2(false);
-          setHasMilled5(false);
-          setHasPiece12(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus7(false);
-          setClickStatus12(false);
-        } else if (
-          hasPiece8 === false &&
-          clickStatus8 === true &&
-          imageColor7 !== None &&
-          imageColor8 === lightgreen
-        ) {
-          setImageColor8(imageColor7);
-          setImageColor7(None);
-          setHasPiece7(false);
-          setHasMilled2(false);
-          setHasMilled5(false);
-          setHasPiece8(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus7(false);
-          setClickStatus8(false);
-        }
-        if (imageColor12 === lightgreen && imageColor8 === lightgreen) {
-          setImageColor12(None);
-          setImageColor7(imageColor7);
-          setImageColor8(None);
+        if (roundColor === imageColor7) {
+          if (
+            millStatus === true &&
+            (imageColor7 === millColor || imageColor7 === None)
+          ) {
+          } else if (
+            hasPiece12 === false &&
+            clickStatus12 === true &&
+            imageColor7 !== None &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor12(imageColor7);
+            setImageColor7(None);
+            setHasPiece7(false);
+            setHasMilled2(false);
+            setHasMilled5(false);
+            setHasPiece12(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus7(false);
+            setClickStatus12(false);
+          } else if (
+            hasPiece8 === false &&
+            clickStatus8 === true &&
+            imageColor7 !== None &&
+            imageColor8 === lightgreen
+          ) {
+            setImageColor8(imageColor7);
+            setImageColor7(None);
+            setHasPiece7(false);
+            setHasMilled2(false);
+            setHasMilled5(false);
+            setHasPiece8(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus7(false);
+            setClickStatus8(false);
+          }
+          if (imageColor12 === lightgreen && imageColor8 === lightgreen) {
+            setImageColor12(None);
+            setImageColor7(imageColor7);
+            setImageColor8(None);
 
-          setClickStatus12(false);
-          setHasPiece12(false);
-          setClickStatus8(false);
-          setHasPiece8(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+            setClickStatus8(false);
+            setHasPiece8(false);
+          }
+        } else {
         }
       };
       return (
@@ -1563,6 +1591,7 @@ function App() {
       clickStatus8 === true &&
       hasMilled8 === false &&
       hasMilled5 === false &&
+      roundColor === imageColor8 &&
       imageColor8 !== (millColor && None)
     ) {
       if (imageColor8 === Red) {
@@ -1654,96 +1683,99 @@ function App() {
         } else if (imageColor8 === green) {
           setImageColor8(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor8 === millColor || imageColor8 === None)
-        ) {
-        } else if (
-          hasPiece7 === false &&
-          clickStatus7 === true &&
-          imageColor8 !== None &&
-          imageColor7 === lightgreen
-        ) {
-          setImageColor7(imageColor8);
-          setImageColor8(None);
-          setHasPiece8(false);
-          setHasMilled8(false);
-          setHasMilled5(false);
-          setHasPiece7(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus8(false);
-          setClickStatus7(false);
-        } else if (
-          hasPiece5 === false &&
-          clickStatus5 === true &&
-          imageColor8 !== None &&
-          imageColor5 === lightgreen
-        ) {
-          setImageColor5(imageColor8);
-          setImageColor8(None);
-          setHasPiece8(false);
-          setHasMilled8(false);
-          setHasMilled5(false);
-          setHasPiece5(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus8(false);
-          setClickStatus5(false);
-        } else if (
-          hasPiece9 === false &&
-          clickStatus9 === true &&
-          imageColor8 !== None &&
-          imageColor9 === lightgreen
-        ) {
-          setImageColor9(imageColor8);
-          setImageColor8(None);
-          setHasPiece8(false);
-          setHasMilled8(false);
-          setHasMilled5(false);
-          setHasPiece9(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus8(false);
-          setClickStatus9(false);
-        }
-        if (
-          imageColor7 === lightgreen &&
-          imageColor9 === lightgreen &&
-          imageColor5 === lightgreen
-        ) {
-          setImageColor7(None);
-          setImageColor8(imageColor8);
-          setImageColor9(None);
-          setImageColor5(None);
+        if (roundColor === imageColor8) {
+          if (
+            millStatus === true &&
+            (imageColor8 === millColor || imageColor8 === None)
+          ) {
+          } else if (
+            hasPiece7 === false &&
+            clickStatus7 === true &&
+            imageColor8 !== None &&
+            imageColor7 === lightgreen
+          ) {
+            setImageColor7(imageColor8);
+            setImageColor8(None);
+            setHasPiece8(false);
+            setHasMilled8(false);
+            setHasMilled5(false);
+            setHasPiece7(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus8(false);
+            setClickStatus7(false);
+          } else if (
+            hasPiece5 === false &&
+            clickStatus5 === true &&
+            imageColor8 !== None &&
+            imageColor5 === lightgreen
+          ) {
+            setImageColor5(imageColor8);
+            setImageColor8(None);
+            setHasPiece8(false);
+            setHasMilled8(false);
+            setHasMilled5(false);
+            setHasPiece5(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus8(false);
+            setClickStatus5(false);
+          } else if (
+            hasPiece9 === false &&
+            clickStatus9 === true &&
+            imageColor8 !== None &&
+            imageColor9 === lightgreen
+          ) {
+            setImageColor9(imageColor8);
+            setImageColor8(None);
+            setHasPiece8(false);
+            setHasMilled8(false);
+            setHasMilled5(false);
+            setHasPiece9(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus8(false);
+            setClickStatus9(false);
+          }
+          if (
+            imageColor7 === lightgreen &&
+            imageColor9 === lightgreen &&
+            imageColor5 === lightgreen
+          ) {
+            setImageColor7(None);
+            setImageColor8(imageColor8);
+            setImageColor9(None);
+            setImageColor5(None);
 
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus7(false);
-          setHasPiece7(false);
-          setClickStatus9(false);
-          setHasPiece9(false);
-        } else if (imageColor7 === lightgreen && imageColor9 === lightgreen) {
-          setImageColor7(None);
-          setImageColor8(imageColor8);
-          setImageColor9(None);
-          setClickStatus7(false);
-          setHasPiece7(false);
-          setClickStatus9(false);
-          setHasPiece9(false);
-        } else if (imageColor7 === lightgreen && imageColor5 === lightgreen) {
-          setImageColor7(None);
-          setImageColor8(imageColor8);
-          setImageColor5(None);
-          setClickStatus7(false);
-          setHasPiece7(false);
-          setClickStatus5(false);
-          setHasPiece5(false);
-        } else if (imageColor9 === lightgreen && imageColor5 === lightgreen) {
-          setImageColor5(None);
-          setImageColor8(imageColor8);
-          setImageColor9(None);
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus9(false);
-          setHasPiece9(false);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus7(false);
+            setHasPiece7(false);
+            setClickStatus9(false);
+            setHasPiece9(false);
+          } else if (imageColor7 === lightgreen && imageColor9 === lightgreen) {
+            setImageColor7(None);
+            setImageColor8(imageColor8);
+            setImageColor9(None);
+            setClickStatus7(false);
+            setHasPiece7(false);
+            setClickStatus9(false);
+            setHasPiece9(false);
+          } else if (imageColor7 === lightgreen && imageColor5 === lightgreen) {
+            setImageColor7(None);
+            setImageColor8(imageColor8);
+            setImageColor5(None);
+            setClickStatus7(false);
+            setHasPiece7(false);
+            setClickStatus5(false);
+            setHasPiece5(false);
+          } else if (imageColor9 === lightgreen && imageColor5 === lightgreen) {
+            setImageColor5(None);
+            setImageColor8(imageColor8);
+            setImageColor9(None);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus9(false);
+            setHasPiece9(false);
+          }
+        } else {
         }
       };
       return (
@@ -1763,6 +1795,7 @@ function App() {
       clickStatus9 === true &&
       hasMilled5 === false &&
       hasMilled7 === false &&
+      roundColor === imageColor9 &&
       imageColor9 !== (millColor && None)
     ) {
       if (imageColor9 === Red) {
@@ -1838,50 +1871,53 @@ function App() {
         } else if (imageColor9 === green) {
           setImageColor9(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor9 === millColor || imageColor9 === None)
-        ) {
-        } else if (
-          hasPiece8 === false &&
-          clickStatus8 === true &&
-          imageColor9 !== None &&
-          imageColor8 === lightgreen
-        ) {
-          setImageColor8(imageColor9);
-          setImageColor9(None);
-          setHasPiece9(false);
-          setHasMilled7(false);
-          setHasMilled5(false);
-          setHasPiece8(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus9(false);
-          setClickStatus8(false);
-        } else if (
-          hasPiece13 === false &&
-          clickStatus13 === true &&
-          imageColor9 !== None &&
-          imageColor13 === lightgreen
-        ) {
-          setImageColor13(imageColor9);
-          setImageColor9(None);
-          setHasPiece9(false);
-          setHasMilled7(false);
-          setHasMilled5(false);
-          setHasPiece13(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus9(false);
-          setClickStatus13(false);
-        }
-        if (imageColor8 === lightgreen && imageColor13 === lightgreen) {
-          setImageColor8(None);
-          setImageColor9(imageColor8);
-          setImageColor13(None);
-          setClickStatus8(false);
-          setHasPiece8(false);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus8(false);
+        if (roundColor === imageColor9) {
+          if (
+            millStatus === true &&
+            (imageColor9 === millColor || imageColor9 === None)
+          ) {
+          } else if (
+            hasPiece8 === false &&
+            clickStatus8 === true &&
+            imageColor9 !== None &&
+            imageColor8 === lightgreen
+          ) {
+            setImageColor8(imageColor9);
+            setImageColor9(None);
+            setHasPiece9(false);
+            setHasMilled7(false);
+            setHasMilled5(false);
+            setHasPiece8(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus9(false);
+            setClickStatus8(false);
+          } else if (
+            hasPiece13 === false &&
+            clickStatus13 === true &&
+            imageColor9 !== None &&
+            imageColor13 === lightgreen
+          ) {
+            setImageColor13(imageColor9);
+            setImageColor9(None);
+            setHasPiece9(false);
+            setHasMilled7(false);
+            setHasMilled5(false);
+            setHasPiece13(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus9(false);
+            setClickStatus13(false);
+          }
+          if (imageColor8 === lightgreen && imageColor13 === lightgreen) {
+            setImageColor8(None);
+            setImageColor9(imageColor8);
+            setImageColor13(None);
+            setClickStatus8(false);
+            setHasPiece8(false);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus8(false);
+          }
+        } else {
         }
       };
       return (
@@ -1900,6 +1936,7 @@ function App() {
       clickStatus10 === true &&
       hasMilled1 === false &&
       hasMilled15 === false &&
+      roundColor === imageColor10 &&
       imageColor10 !== (millColor && None)
     ) {
       if (imageColor10 === Red) {
@@ -1991,95 +2028,107 @@ function App() {
         } else if (imageColor10 === green) {
           setImageColor10(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor10 === millColor || imageColor10 === None)
-        ) {
-        } else if (
-          hasPiece1 === false &&
-          clickStatus1 === true &&
-          imageColor10 !== None &&
-          imageColor1 === lightgreen
-        ) {
-          setImageColor1(imageColor10);
-          setImageColor10(None);
-          setHasPiece10(false);
-          setHasPiece1(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled15(false);
-          setClickStatus10(false);
-          setClickStatus1(false);
-        } else if (
-          hasPiece22 === false &&
-          clickStatus22 === true &&
-          imageColor10 !== None &&
-          imageColor22 === lightgreen
-        ) {
-          setImageColor22(imageColor10);
-          setImageColor10(None);
-          setHasPiece10(false);
-          setHasPiece22(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled15(false);
-          setClickStatus10(false);
-          setClickStatus22(false);
-        } else if (
-          hasPiece11 === false &&
-          clickStatus11 === true &&
-          imageColor10 !== None &&
-          imageColor11 === lightgreen
-        ) {
-          setImageColor11(imageColor10);
-          setImageColor10(None);
-          setHasPiece10(false);
-          setHasPiece11(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled15(false);
-          setClickStatus10(false);
-          setClickStatus11(false);
-        }
-        if (
-          imageColor22 === lightgreen &&
-          imageColor1 === lightgreen &&
-          imageColor11 === lightgreen
-        ) {
-          setImageColor22(None);
-          setImageColor10(imageColor10);
-          setImageColor1(None);
-          setImageColor11(None);
-          setClickStatus22(false);
-          setHasPiece22(false);
-          setClickStatus1(false);
-          setHasPiece1(false);
-          setClickStatus11(false);
-          setHasPiece11(false);
-        } else if (imageColor22 === lightgreen && imageColor1 === lightgreen) {
-          setImageColor22(None);
-          setImageColor10(imageColor10);
-          setImageColor1(None);
-          setClickStatus1(false);
-          setHasPiece1(false);
-          setClickStatus22(false);
-          setHasPiece22(false);
-        } else if (imageColor22 === lightgreen && imageColor11 === lightgreen) {
-          setImageColor22(None);
-          setImageColor10(imageColor10);
-          setImageColor11(None);
-          setClickStatus11(false);
-          setHasPiece11(false);
-          setClickStatus22(false);
-          setHasPiece22(false);
-        } else if (imageColor1 === lightgreen && imageColor11 === lightgreen) {
-          setImageColor1(None);
-          setImageColor10(imageColor10);
-          setImageColor11(None);
-          setClickStatus1(false);
-          setHasPiece1(false);
-          setClickStatus11(false);
-          setHasPiece11(false);
+        if (roundColor === imageColor10) {
+          if (
+            millStatus === true &&
+            (imageColor10 === millColor || imageColor10 === None)
+          ) {
+          } else if (
+            hasPiece1 === false &&
+            clickStatus1 === true &&
+            imageColor10 !== None &&
+            imageColor1 === lightgreen
+          ) {
+            setImageColor1(imageColor10);
+            setImageColor10(None);
+            setHasPiece10(false);
+            setHasPiece1(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled15(false);
+            setClickStatus10(false);
+            setClickStatus1(false);
+          } else if (
+            hasPiece22 === false &&
+            clickStatus22 === true &&
+            imageColor10 !== None &&
+            imageColor22 === lightgreen
+          ) {
+            setImageColor22(imageColor10);
+            setImageColor10(None);
+            setHasPiece10(false);
+            setHasPiece22(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled15(false);
+            setClickStatus10(false);
+            setClickStatus22(false);
+          } else if (
+            hasPiece11 === false &&
+            clickStatus11 === true &&
+            imageColor10 !== None &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor11(imageColor10);
+            setImageColor10(None);
+            setHasPiece10(false);
+            setHasPiece11(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled15(false);
+            setClickStatus10(false);
+            setClickStatus11(false);
+          }
+          if (
+            imageColor22 === lightgreen &&
+            imageColor1 === lightgreen &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor10(imageColor10);
+            setImageColor1(None);
+            setImageColor11(None);
+            setClickStatus22(false);
+            setHasPiece22(false);
+            setClickStatus1(false);
+            setHasPiece1(false);
+            setClickStatus11(false);
+            setHasPiece11(false);
+          } else if (
+            imageColor22 === lightgreen &&
+            imageColor1 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor10(imageColor10);
+            setImageColor1(None);
+            setClickStatus1(false);
+            setHasPiece1(false);
+            setClickStatus22(false);
+            setHasPiece22(false);
+          } else if (
+            imageColor22 === lightgreen &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor10(imageColor10);
+            setImageColor11(None);
+            setClickStatus11(false);
+            setHasPiece11(false);
+            setClickStatus22(false);
+            setHasPiece22(false);
+          } else if (
+            imageColor1 === lightgreen &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor1(None);
+            setImageColor10(imageColor10);
+            setImageColor11(None);
+            setClickStatus1(false);
+            setHasPiece1(false);
+            setClickStatus11(false);
+            setHasPiece11(false);
+          }
+        } else {
         }
       };
       return (
@@ -2097,6 +2146,7 @@ function App() {
       clickStatus11 === true &&
       hasMilled15 === false &&
       hasMilled16 === false &&
+      roundColor === imageColor11 &&
       imageColor11 !== (millColor && None)
     ) {
       if (imageColor11 === Red) {
@@ -2203,198 +2253,219 @@ function App() {
         } else if (imageColor11 === green) {
           setImageColor11(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor11 === millColor || imageColor11 === None)
-        ) {
-        } else if (
-          hasPiece10 === false &&
-          clickStatus10 === true &&
-          imageColor11 !== None &&
-          imageColor10 === lightgreen
-        ) {
-          setImageColor10(imageColor11);
-          setImageColor11(None);
-          setHasPiece11(false);
-          setHasMilled16(false);
-          setHasMilled15(false);
-          setHasPiece10(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus11(false);
-          setClickStatus10(false);
-        } else if (
-          hasPiece4 === false &&
-          clickStatus4 === true &&
-          imageColor11 !== None &&
-          imageColor4 === lightgreen
-        ) {
-          setImageColor4(imageColor11);
-          setImageColor11(None);
-          setHasPiece11(false);
-          setHasMilled16(false);
-          setHasMilled15(false);
-          setHasPiece4(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus11(false);
-          setClickStatus4(false);
-        } else if (
-          hasPiece19 === false &&
-          clickStatus19 === true &&
-          imageColor11 !== None &&
-          imageColor19 === lightgreen
-        ) {
-          setImageColor19(imageColor11);
-          setImageColor11(None);
-          setHasPiece11(false);
-          setHasMilled16(false);
-          setHasMilled15(false);
-          setHasPiece19(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus11(false);
-          setClickStatus19(false);
-        } else if (
-          hasPiece12 === false &&
-          clickStatus12 === true &&
-          imageColor11 !== None &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor12(imageColor11);
-          setImageColor11(None);
-          setHasPiece11(false);
-          setHasMilled16(false);
-          setHasMilled15(false);
-          setHasPiece12(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus11(false);
-          setClickStatus12(false);
-        }
-        if (
-          imageColor4 === lightgreen &&
-          imageColor10 === lightgreen &&
-          imageColor19 === lightgreen &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor10(None);
-          setImageColor19(None);
-          setImageColor12(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus12(false);
-          setHasPiece12(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor10 === lightgreen &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor10(None);
-          setImageColor12(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus12(false);
-          setHasPiece12(false);
-        } else if (
-          imageColor19 === lightgreen &&
-          imageColor10 === lightgreen &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor19(None);
-          setImageColor11(imageColor11);
-          setImageColor10(None);
-          setImageColor12(None);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus12(false);
-          setHasPiece12(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor10 === lightgreen &&
-          imageColor19 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor10(None);
-          setImageColor19(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-        } else if (
-          imageColor4 === lightgreen &&
-          imageColor12 === lightgreen &&
-          imageColor19 === lightgreen
-        ) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor12(None);
-          setImageColor19(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus12(false);
-          setHasPiece12(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-        } else if (imageColor4 === lightgreen && imageColor10 === lightgreen) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor10(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus10(false);
-          setHasPiece10(false);
-        } else if (imageColor4 === lightgreen && imageColor19 === lightgreen) {
-          setImageColor4(None);
-          setImageColor11(imageColor11);
-          setImageColor19(None);
-          setClickStatus4(false);
-          setHasPiece4(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-        } else if (imageColor10 === lightgreen && imageColor19 === lightgreen) {
-          setImageColor10(None);
-          setImageColor11(imageColor11);
-          setImageColor19(None);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-        } else if (imageColor10 === lightgreen && imageColor12 === lightgreen) {
-          setImageColor10(None);
-          setImageColor11(imageColor11);
-          setImageColor12(None);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus12(false);
-          setHasPiece12(false);
-        } else if (imageColor12 === lightgreen && imageColor4 === lightgreen) {
-          setImageColor12(None);
-          setImageColor11(imageColor11);
-          setImageColor4(None);
-          setClickStatus12(false);
-          setHasPiece12(false);
-          setClickStatus4(false);
-          setHasPiece4(false);
-        } else if (imageColor12 === lightgreen && imageColor19 === lightgreen) {
-          setImageColor12(None);
-          setImageColor11(imageColor11);
-          setImageColor19(None);
-          setClickStatus12(false);
-          setHasPiece12(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
+        if (roundColor === imageColor11) {
+          if (
+            millStatus === true &&
+            (imageColor11 === millColor || imageColor11 === None)
+          ) {
+          } else if (
+            hasPiece10 === false &&
+            clickStatus10 === true &&
+            imageColor11 !== None &&
+            imageColor10 === lightgreen
+          ) {
+            setImageColor10(imageColor11);
+            setImageColor11(None);
+            setHasPiece11(false);
+            setHasMilled16(false);
+            setHasMilled15(false);
+            setHasPiece10(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus11(false);
+            setClickStatus10(false);
+          } else if (
+            hasPiece4 === false &&
+            clickStatus4 === true &&
+            imageColor11 !== None &&
+            imageColor4 === lightgreen
+          ) {
+            setImageColor4(imageColor11);
+            setImageColor11(None);
+            setHasPiece11(false);
+            setHasMilled16(false);
+            setHasMilled15(false);
+            setHasPiece4(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus11(false);
+            setClickStatus4(false);
+          } else if (
+            hasPiece19 === false &&
+            clickStatus19 === true &&
+            imageColor11 !== None &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor19(imageColor11);
+            setImageColor11(None);
+            setHasPiece11(false);
+            setHasMilled16(false);
+            setHasMilled15(false);
+            setHasPiece19(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus11(false);
+            setClickStatus19(false);
+          } else if (
+            hasPiece12 === false &&
+            clickStatus12 === true &&
+            imageColor11 !== None &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor12(imageColor11);
+            setImageColor11(None);
+            setHasPiece11(false);
+            setHasMilled16(false);
+            setHasMilled15(false);
+            setHasPiece12(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus11(false);
+            setClickStatus12(false);
+          }
+          if (
+            imageColor4 === lightgreen &&
+            imageColor10 === lightgreen &&
+            imageColor19 === lightgreen &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor10(None);
+            setImageColor19(None);
+            setImageColor12(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor10 === lightgreen &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor10(None);
+            setImageColor12(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+          } else if (
+            imageColor19 === lightgreen &&
+            imageColor10 === lightgreen &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor19(None);
+            setImageColor11(imageColor11);
+            setImageColor10(None);
+            setImageColor12(None);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor10 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor10(None);
+            setImageColor19(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor12 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor12(None);
+            setImageColor19(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor10 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor10(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus10(false);
+            setHasPiece10(false);
+          } else if (
+            imageColor4 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor4(None);
+            setImageColor11(imageColor11);
+            setImageColor19(None);
+            setClickStatus4(false);
+            setHasPiece4(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          } else if (
+            imageColor10 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor10(None);
+            setImageColor11(imageColor11);
+            setImageColor19(None);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          } else if (
+            imageColor10 === lightgreen &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor10(None);
+            setImageColor11(imageColor11);
+            setImageColor12(None);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus12(false);
+            setHasPiece12(false);
+          } else if (
+            imageColor12 === lightgreen &&
+            imageColor4 === lightgreen
+          ) {
+            setImageColor12(None);
+            setImageColor11(imageColor11);
+            setImageColor4(None);
+            setClickStatus12(false);
+            setHasPiece12(false);
+            setClickStatus4(false);
+            setHasPiece4(false);
+          } else if (
+            imageColor12 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor12(None);
+            setImageColor11(imageColor11);
+            setImageColor19(None);
+            setClickStatus12(false);
+            setHasPiece12(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          }
+        } else {
         }
       };
       return (
@@ -2413,6 +2484,7 @@ function App() {
       clickStatus12 === true &&
       hasMilled2 === false &&
       hasMilled15 === false &&
+      roundColor === imageColor12 &&
       imageColor12 !== (millColor && None)
     ) {
       if (imageColor12 === Red) {
@@ -2504,98 +2576,110 @@ function App() {
         } else if (imageColor12 === green) {
           setImageColor12(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor12 === millColor || imageColor12 === None)
-        ) {
-        } else if (
-          hasPiece11 === false &&
-          clickStatus11 === true &&
-          imageColor12 !== None &&
-          imageColor11 === lightgreen
-        ) {
-          setImageColor11(imageColor12);
-          setImageColor12(None);
-          setHasPiece12(false);
-          setHasPiece11(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled2(false);
-          setHasMilled15(false);
-          setClickStatus12(false);
-          setClickStatus11(false);
-        } else if (
-          hasPiece7 === false &&
-          clickStatus7 === true &&
-          imageColor12 !== None &&
-          imageColor7 === lightgreen
-        ) {
-          setImageColor7(imageColor12);
-          setImageColor12(None);
-          setHasPiece12(false);
-          setHasPiece7(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled2(false);
-          setHasMilled15(false);
-          setClickStatus12(false);
-          setClickStatus7(false);
-        } else if (
-          hasPiece16 === false &&
-          clickStatus16 === true &&
-          imageColor12 !== None &&
-          imageColor16 === lightgreen
-        ) {
-          setImageColor16(imageColor12);
-          setImageColor12(None);
-          setHasPiece12(false);
-          setHasPiece16(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled2(false);
-          setHasMilled15(false);
-          setClickStatus12(false);
-          setClickStatus16(false);
-        }
-        if (
-          imageColor11 === lightgreen &&
-          imageColor7 === lightgreen &&
-          imageColor16 === lightgreen
-        ) {
-          setImageColor11(None);
-          setImageColor12(imageColor12);
-          setImageColor7(None);
-          setImageColor16(None);
+        if (roundColor === imageColor12) {
+          if (
+            millStatus === true &&
+            (imageColor12 === millColor || imageColor12 === None)
+          ) {
+          } else if (
+            hasPiece11 === false &&
+            clickStatus11 === true &&
+            imageColor12 !== None &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor11(imageColor12);
+            setImageColor12(None);
+            setHasPiece12(false);
+            setHasPiece11(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled2(false);
+            setHasMilled15(false);
+            setClickStatus12(false);
+            setClickStatus11(false);
+          } else if (
+            hasPiece7 === false &&
+            clickStatus7 === true &&
+            imageColor12 !== None &&
+            imageColor7 === lightgreen
+          ) {
+            setImageColor7(imageColor12);
+            setImageColor12(None);
+            setHasPiece12(false);
+            setHasPiece7(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled2(false);
+            setHasMilled15(false);
+            setClickStatus12(false);
+            setClickStatus7(false);
+          } else if (
+            hasPiece16 === false &&
+            clickStatus16 === true &&
+            imageColor12 !== None &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor16(imageColor12);
+            setImageColor12(None);
+            setHasPiece12(false);
+            setHasPiece16(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled2(false);
+            setHasMilled15(false);
+            setClickStatus12(false);
+            setClickStatus16(false);
+          }
+          if (
+            imageColor11 === lightgreen &&
+            imageColor7 === lightgreen &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor11(None);
+            setImageColor12(imageColor12);
+            setImageColor7(None);
+            setImageColor16(None);
 
-          setClickStatus11(false);
-          setHasPiece11(false);
-          setClickStatus7(false);
-          setHasPiece7(false);
-          setClickStatus16(false);
-          setHasPiece16(false);
-        } else if (imageColor11 === lightgreen && imageColor1 === lightgreen) {
-          setImageColor11(None);
-          setImageColor12(imageColor12);
-          setImageColor7(None);
+            setClickStatus11(false);
+            setHasPiece11(false);
+            setClickStatus7(false);
+            setHasPiece7(false);
+            setClickStatus16(false);
+            setHasPiece16(false);
+          } else if (
+            imageColor11 === lightgreen &&
+            imageColor1 === lightgreen
+          ) {
+            setImageColor11(None);
+            setImageColor12(imageColor12);
+            setImageColor7(None);
 
-          setClickStatus11(false);
-          setHasPiece11(false);
-          setClickStatus7(false);
-          setHasPiece7(false);
-        } else if (imageColor11 === lightgreen && imageColor16 === lightgreen) {
-          setImageColor11(None);
-          setImageColor12(imageColor12);
-          setImageColor16(None);
-          setClickStatus11(false);
-          setHasPiece11(false);
-          setClickStatus16(false);
-          setHasPiece16(false);
-        } else if (imageColor7 === lightgreen && imageColor16 === lightgreen) {
-          setImageColor16(None);
-          setImageColor12(imageColor12);
-          setImageColor7(None);
+            setClickStatus11(false);
+            setHasPiece11(false);
+            setClickStatus7(false);
+            setHasPiece7(false);
+          } else if (
+            imageColor11 === lightgreen &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor11(None);
+            setImageColor12(imageColor12);
+            setImageColor16(None);
+            setClickStatus11(false);
+            setHasPiece11(false);
+            setClickStatus16(false);
+            setHasPiece16(false);
+          } else if (
+            imageColor7 === lightgreen &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor16(None);
+            setImageColor12(imageColor12);
+            setImageColor7(None);
 
-          setClickStatus7(false);
-          setHasPiece7(false);
-          setClickStatus16(false);
-          setHasPiece16(false);
+            setClickStatus7(false);
+            setHasPiece7(false);
+            setClickStatus16(false);
+            setHasPiece16(false);
+          }
+        } else {
         }
       };
       return (
@@ -2614,6 +2698,7 @@ function App() {
       clickStatus13 === true &&
       hasMilled12 === false &&
       hasMilled7 === false &&
+      roundColor === imageColor13 &&
       imageColor13 !== (millColor && None)
     ) {
       if (imageColor13 === Red) {
@@ -2705,96 +2790,108 @@ function App() {
         } else if (imageColor13 === green) {
           setImageColor13(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor13 === millColor || imageColor13 === None)
-        ) {
-        } else if (
-          hasPiece9 === false &&
-          clickStatus9 === true &&
-          imageColor13 !== None &&
-          imageColor9 === lightgreen
-        ) {
-          setImageColor9(imageColor13);
-          setImageColor13(None);
-          setHasPiece13(false);
-          setHasMilled12(false);
-          setHasMilled7(false);
-          setHasPiece9(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus13(false);
-          setClickStatus9(false);
-        } else if (
-          hasPiece18 === false &&
-          clickStatus18 === true &&
-          imageColor13 !== None &&
-          imageColor18 === lightgreen
-        ) {
-          setImageColor18(imageColor13);
-          setImageColor13(None);
-          setHasPiece13(false);
-          setHasMilled12(false);
-          setHasMilled7(false);
-          setHasPiece18(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus13(false);
-          setClickStatus18(false);
-        } else if (
-          hasPiece14 === false &&
-          clickStatus14 === true &&
-          imageColor13 !== None &&
-          imageColor14 === lightgreen
-        ) {
-          setImageColor14(imageColor13);
-          setImageColor13(None);
-          setHasPiece13(false);
-          setHasMilled12(false);
-          setHasMilled7(false);
-          setHasPiece14(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus13(false);
-          setClickStatus14(false);
-        }
-        if (
-          imageColor9 === lightgreen &&
-          imageColor18 === lightgreen &&
-          imageColor14 === lightgreen
-        ) {
-          setImageColor9(None);
-          setImageColor13(imageColor13);
-          setImageColor18(None);
-          setImageColor14(None);
+        if (roundColor === imageColor13) {
+          if (
+            millStatus === true &&
+            (imageColor13 === millColor || imageColor13 === None)
+          ) {
+          } else if (
+            hasPiece9 === false &&
+            clickStatus9 === true &&
+            imageColor13 !== None &&
+            imageColor9 === lightgreen
+          ) {
+            setImageColor9(imageColor13);
+            setImageColor13(None);
+            setHasPiece13(false);
+            setHasMilled12(false);
+            setHasMilled7(false);
+            setHasPiece9(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus13(false);
+            setClickStatus9(false);
+          } else if (
+            hasPiece18 === false &&
+            clickStatus18 === true &&
+            imageColor13 !== None &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor18(imageColor13);
+            setImageColor13(None);
+            setHasPiece13(false);
+            setHasMilled12(false);
+            setHasMilled7(false);
+            setHasPiece18(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus13(false);
+            setClickStatus18(false);
+          } else if (
+            hasPiece14 === false &&
+            clickStatus14 === true &&
+            imageColor13 !== None &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor14(imageColor13);
+            setImageColor13(None);
+            setHasPiece13(false);
+            setHasMilled12(false);
+            setHasMilled7(false);
+            setHasPiece14(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus13(false);
+            setClickStatus14(false);
+          }
+          if (
+            imageColor9 === lightgreen &&
+            imageColor18 === lightgreen &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor9(None);
+            setImageColor13(imageColor13);
+            setImageColor18(None);
+            setImageColor14(None);
 
-          setClickStatus9(false);
-          setHasPiece9(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
-          setClickStatus14(false);
-          setHasPiece14(false);
-        } else if (imageColor9 === lightgreen && imageColor18 === lightgreen) {
-          setImageColor9(None);
-          setImageColor13(imageColor13);
-          setImageColor18(None);
-          setClickStatus9(false);
-          setHasPiece9(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
-        } else if (imageColor9 === lightgreen && imageColor14 === lightgreen) {
-          setImageColor9(None);
-          setImageColor13(imageColor13);
-          setImageColor14(None);
-          setClickStatus9(false);
-          setHasPiece9(false);
-          setClickStatus14(false);
-          setHasPiece14(false);
-        } else if (imageColor18 === lightgreen && imageColor14 === lightgreen) {
-          setImageColor14(None);
-          setImageColor13(imageColor13);
-          setImageColor18(None);
-          setClickStatus18(false);
-          setHasPiece18(false);
-          setClickStatus14(false);
-          setHasPiece14(false);
+            setClickStatus9(false);
+            setHasPiece9(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+            setClickStatus14(false);
+            setHasPiece14(false);
+          } else if (
+            imageColor9 === lightgreen &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor9(None);
+            setImageColor13(imageColor13);
+            setImageColor18(None);
+            setClickStatus9(false);
+            setHasPiece9(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+          } else if (
+            imageColor9 === lightgreen &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor9(None);
+            setImageColor13(imageColor13);
+            setImageColor14(None);
+            setClickStatus9(false);
+            setHasPiece9(false);
+            setClickStatus14(false);
+            setHasPiece14(false);
+          } else if (
+            imageColor18 === lightgreen &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor14(None);
+            setImageColor13(imageColor13);
+            setImageColor18(None);
+            setClickStatus18(false);
+            setHasPiece18(false);
+            setClickStatus14(false);
+            setHasPiece14(false);
+          }
+        } else {
         }
       };
       return (
@@ -2813,6 +2910,7 @@ function App() {
       clickStatus14 === true &&
       hasMilled12 === false &&
       hasMilled13 === false &&
+      roundColor === imageColor14 &&
       imageColor14 !== (millColor && None)
     ) {
       if (imageColor14 === Red) {
@@ -2918,200 +3016,221 @@ function App() {
         } else if (imageColor14 === green) {
           setImageColor14(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor14 === millColor || imageColor14 === None)
-        ) {
-        } else if (
-          hasPiece13 === false &&
-          clickStatus13 === true &&
-          imageColor14 !== None &&
-          imageColor13 === lightgreen
-        ) {
-          setImageColor13(imageColor14);
-          setImageColor14(None);
-          setHasPiece14(false);
-          setHasMilled12(false);
-          setHasMilled13(false);
-          setHasPiece13(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus14(false);
-          setClickStatus13(false);
-        } else if (
-          hasPiece6 === false &&
-          clickStatus6 === true &&
-          imageColor14 !== None &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor6(imageColor14);
-          setImageColor14(None);
-          setHasPiece14(false);
-          setHasMilled12(false);
-          setHasMilled13(false);
-          setHasPiece6(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus14(false);
-          setClickStatus6(false);
-        } else if (
-          hasPiece21 === false &&
-          clickStatus21 === true &&
-          imageColor14 !== None &&
-          imageColor21 === lightgreen
-        ) {
-          setImageColor21(imageColor14);
-          setImageColor14(None);
-          setHasPiece14(false);
-          setHasMilled12(false);
-          setHasMilled13(false);
-          setHasPiece21(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus14(false);
-          setClickStatus21(false);
-        } else if (
-          hasPiece15 === false &&
-          clickStatus15 === true &&
-          imageColor14 !== None &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor15(imageColor14);
-          setImageColor14(None);
-          setHasPiece14(false);
-          setHasMilled12(false);
-          setHasMilled13(false);
-          setHasPiece15(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus14(false);
-          setClickStatus15(false);
-        }
-        if (
-          imageColor13 === lightgreen &&
-          imageColor21 === lightgreen &&
-          imageColor6 === lightgreen &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor21(None);
-          setImageColor6(None);
-          setImageColor15(None);
+        if (roundColor === imageColor14) {
+          if (
+            millStatus === true &&
+            (imageColor14 === millColor || imageColor14 === None)
+          ) {
+          } else if (
+            hasPiece13 === false &&
+            clickStatus13 === true &&
+            imageColor14 !== None &&
+            imageColor13 === lightgreen
+          ) {
+            setImageColor13(imageColor14);
+            setImageColor14(None);
+            setHasPiece14(false);
+            setHasMilled12(false);
+            setHasMilled13(false);
+            setHasPiece13(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus14(false);
+            setClickStatus13(false);
+          } else if (
+            hasPiece6 === false &&
+            clickStatus6 === true &&
+            imageColor14 !== None &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor6(imageColor14);
+            setImageColor14(None);
+            setHasPiece14(false);
+            setHasMilled12(false);
+            setHasMilled13(false);
+            setHasPiece6(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus14(false);
+            setClickStatus6(false);
+          } else if (
+            hasPiece21 === false &&
+            clickStatus21 === true &&
+            imageColor14 !== None &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor21(imageColor14);
+            setImageColor14(None);
+            setHasPiece14(false);
+            setHasMilled12(false);
+            setHasMilled13(false);
+            setHasPiece21(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus14(false);
+            setClickStatus21(false);
+          } else if (
+            hasPiece15 === false &&
+            clickStatus15 === true &&
+            imageColor14 !== None &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor15(imageColor14);
+            setImageColor14(None);
+            setHasPiece14(false);
+            setHasMilled12(false);
+            setHasMilled13(false);
+            setHasPiece15(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus14(false);
+            setClickStatus15(false);
+          }
+          if (
+            imageColor13 === lightgreen &&
+            imageColor21 === lightgreen &&
+            imageColor6 === lightgreen &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor21(None);
+            setImageColor6(None);
+            setImageColor15(None);
 
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (
-          imageColor13 === lightgreen &&
-          imageColor21 === lightgreen &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor21(None);
-          setImageColor15(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor13 === lightgreen &&
+            imageColor21 === lightgreen &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor21(None);
+            setImageColor15(None);
 
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus15(false);
-          setHasPiece15(false);
-        } else if (
-          imageColor6 === lightgreen &&
-          imageColor21 === lightgreen &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor6(None);
-          setImageColor14(imageColor14);
-          setImageColor21(None);
-          setImageColor15(None);
-          setClickStatus6(false);
-          setHasPiece6(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus15(false);
-          setHasPiece15(false);
-        } else if (
-          imageColor13 === lightgreen &&
-          imageColor21 === lightgreen &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor21(None);
-          setImageColor6(None);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (
-          imageColor13 === lightgreen &&
-          imageColor15 === lightgreen &&
-          imageColor6 === lightgreen
-        ) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor15(None);
-          setImageColor6(None);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (imageColor13 === lightgreen && imageColor21 === lightgreen) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor21(None);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-        } else if (imageColor13 === lightgreen && imageColor6 === lightgreen) {
-          setImageColor13(None);
-          setImageColor14(imageColor14);
-          setImageColor6(None);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (imageColor21 === lightgreen && imageColor6 === lightgreen) {
-          setImageColor21(None);
-          setImageColor14(imageColor14);
-          setImageColor6(None);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
-        } else if (imageColor21 === lightgreen && imageColor15 === lightgreen) {
-          setImageColor21(None);
-          setImageColor14(imageColor14);
-          setImageColor15(None);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus15(false);
-          setHasPiece15(false);
-        } else if (imageColor15 === lightgreen && imageColor13 === lightgreen) {
-          setImageColor15(None);
-          setImageColor14(imageColor14);
-          setImageColor13(None);
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus13(false);
-          setHasPiece13(false);
-        } else if (imageColor15 === lightgreen && imageColor6 === lightgreen) {
-          setImageColor15(None);
-          setImageColor14(imageColor14);
-          setImageColor6(None);
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus6(false);
-          setHasPiece6(false);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+          } else if (
+            imageColor6 === lightgreen &&
+            imageColor21 === lightgreen &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor6(None);
+            setImageColor14(imageColor14);
+            setImageColor21(None);
+            setImageColor15(None);
+            setClickStatus6(false);
+            setHasPiece6(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+          } else if (
+            imageColor13 === lightgreen &&
+            imageColor21 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor21(None);
+            setImageColor6(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor13 === lightgreen &&
+            imageColor15 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor15(None);
+            setImageColor6(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor13 === lightgreen &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor21(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+          } else if (
+            imageColor13 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor13(None);
+            setImageColor14(imageColor14);
+            setImageColor6(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor21 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor21(None);
+            setImageColor14(imageColor14);
+            setImageColor6(None);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          } else if (
+            imageColor21 === lightgreen &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor21(None);
+            setImageColor14(imageColor14);
+            setImageColor15(None);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus15(false);
+            setHasPiece15(false);
+          } else if (
+            imageColor15 === lightgreen &&
+            imageColor13 === lightgreen
+          ) {
+            setImageColor15(None);
+            setImageColor14(imageColor14);
+            setImageColor13(None);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus13(false);
+            setHasPiece13(false);
+          } else if (
+            imageColor15 === lightgreen &&
+            imageColor6 === lightgreen
+          ) {
+            setImageColor15(None);
+            setImageColor14(imageColor14);
+            setImageColor6(None);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus6(false);
+            setHasPiece6(false);
+          }
+        } else {
         }
       };
       return (
@@ -3130,6 +3249,7 @@ function App() {
       clickStatus15 === true &&
       hasMilled12 === false &&
       hasMilled14 === false &&
+      roundColor === imageColor15 &&
       imageColor15 !== (millColor && None)
     ) {
       if (imageColor15 === Red) {
@@ -3221,95 +3341,107 @@ function App() {
         } else if (imageColor15 === green) {
           setImageColor15(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor15 === millColor || imageColor15 === None)
-        ) {
-        } else if (
-          hasPiece3 === false &&
-          clickStatus3 === true &&
-          imageColor15 !== None &&
-          imageColor3 === lightgreen
-        ) {
-          setImageColor3(imageColor15);
-          setImageColor15(None);
-          setHasPiece15(false);
-          setHasPiece3(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled12(false);
-          setHasMilled14(false);
-          setClickStatus15(false);
-          setClickStatus3(false);
-        } else if (
-          hasPiece14 === false &&
-          clickStatus14 === true &&
-          imageColor15 !== None &&
-          imageColor14 === lightgreen
-        ) {
-          setImageColor14(imageColor15);
-          setImageColor15(None);
-          setHasPiece15(false);
-          setHasPiece14(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled12(false);
-          setHasMilled14(false);
-          setClickStatus15(false);
-          setClickStatus14(false);
-        } else if (
-          hasPiece24 === false &&
-          clickStatus24 === true &&
-          imageColor15 !== None &&
-          imageColor24 === lightgreen
-        ) {
-          setImageColor24(imageColor15);
-          setImageColor15(None);
-          setHasPiece15(false);
-          setHasPiece24(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled12(false);
-          setHasMilled14(false);
-          setClickStatus15(false);
-          setClickStatus24(false);
-        }
-        if (
-          imageColor14 === lightgreen &&
-          imageColor24 === lightgreen &&
-          imageColor3 === lightgreen
-        ) {
-          setImageColor14(None);
-          setImageColor15(imageColor15);
-          setImageColor24(None);
-          setImageColor3(None);
-          setClickStatus14(false);
-          setHasPiece14(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
-          setClickStatus3(false);
-          setHasPiece3(false);
-        } else if (imageColor14 === lightgreen && imageColor24 === lightgreen) {
-          setImageColor14(None);
-          setImageColor15(imageColor15);
-          setImageColor24(None);
-          setClickStatus14(false);
-          setHasPiece14(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
-        } else if (imageColor14 === lightgreen && imageColor3 === lightgreen) {
-          setImageColor14(None);
-          setImageColor15(imageColor15);
-          setImageColor3(None);
-          setClickStatus14(false);
-          setHasPiece14(false);
-          setClickStatus3(false);
-          setHasPiece3(false);
-        } else if (imageColor3 === lightgreen && imageColor24 === lightgreen) {
-          setImageColor3(None);
-          setImageColor15(imageColor15);
-          setImageColor24(None);
-          setClickStatus3(false);
-          setHasPiece3(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
+        if (roundColor === imageColor15) {
+          if (
+            millStatus === true &&
+            (imageColor15 === millColor || imageColor15 === None)
+          ) {
+          } else if (
+            hasPiece3 === false &&
+            clickStatus3 === true &&
+            imageColor15 !== None &&
+            imageColor3 === lightgreen
+          ) {
+            setImageColor3(imageColor15);
+            setImageColor15(None);
+            setHasPiece15(false);
+            setHasPiece3(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled12(false);
+            setHasMilled14(false);
+            setClickStatus15(false);
+            setClickStatus3(false);
+          } else if (
+            hasPiece14 === false &&
+            clickStatus14 === true &&
+            imageColor15 !== None &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor14(imageColor15);
+            setImageColor15(None);
+            setHasPiece15(false);
+            setHasPiece14(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled12(false);
+            setHasMilled14(false);
+            setClickStatus15(false);
+            setClickStatus14(false);
+          } else if (
+            hasPiece24 === false &&
+            clickStatus24 === true &&
+            imageColor15 !== None &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor24(imageColor15);
+            setImageColor15(None);
+            setHasPiece15(false);
+            setHasPiece24(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled12(false);
+            setHasMilled14(false);
+            setClickStatus15(false);
+            setClickStatus24(false);
+          }
+          if (
+            imageColor14 === lightgreen &&
+            imageColor24 === lightgreen &&
+            imageColor3 === lightgreen
+          ) {
+            setImageColor14(None);
+            setImageColor15(imageColor15);
+            setImageColor24(None);
+            setImageColor3(None);
+            setClickStatus14(false);
+            setHasPiece14(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+            setClickStatus3(false);
+            setHasPiece3(false);
+          } else if (
+            imageColor14 === lightgreen &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor14(None);
+            setImageColor15(imageColor15);
+            setImageColor24(None);
+            setClickStatus14(false);
+            setHasPiece14(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+          } else if (
+            imageColor14 === lightgreen &&
+            imageColor3 === lightgreen
+          ) {
+            setImageColor14(None);
+            setImageColor15(imageColor15);
+            setImageColor3(None);
+            setClickStatus14(false);
+            setHasPiece14(false);
+            setClickStatus3(false);
+            setHasPiece3(false);
+          } else if (
+            imageColor3 === lightgreen &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor3(None);
+            setImageColor15(imageColor15);
+            setImageColor24(None);
+            setClickStatus3(false);
+            setHasPiece3(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+          }
+        } else {
         }
       };
       return (
@@ -3328,6 +3460,7 @@ function App() {
       clickStatus16 === true &&
       hasMilled2 === false &&
       hasMilled6 === false &&
+      roundColor === imageColor16 &&
       imageColor16 !== (millColor && None)
     ) {
       if (imageColor16 === Red) {
@@ -3404,49 +3537,52 @@ function App() {
         } else if (imageColor16 === green) {
           setImageColor16(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor16 === millColor || imageColor16 === None)
-        ) {
-        } else if (
-          hasPiece12 === false &&
-          clickStatus12 === true &&
-          imageColor16 !== None &&
-          imageColor12 === lightgreen
-        ) {
-          setImageColor12(imageColor16);
-          setImageColor16(None);
-          setHasPiece16(false);
-          setHasPiece12(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled2(false);
-          setHasMilled6(false);
-          setClickStatus16(false);
-          setClickStatus12(false);
-        } else if (
-          hasPiece17 === false &&
-          clickStatus17 === true &&
-          imageColor16 !== None &&
-          imageColor17 === lightgreen
-        ) {
-          setImageColor17(imageColor16);
-          setImageColor16(None);
-          setHasPiece16(false);
-          setHasPiece17(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled2(false);
-          setHasMilled6(false);
-          setClickStatus16(false);
-          setClickStatus17(false);
-        }
-        if (imageColor12 === lightgreen && imageColor17 === lightgreen) {
-          setImageColor12(None);
-          setImageColor16(imageColor16);
-          setImageColor17(None);
-          setClickStatus12(false);
-          setHasPiece12(false);
-          setClickStatus17(false);
-          setHasPiece17(false);
+        if (roundColor === imageColor16) {
+          if (
+            millStatus === true &&
+            (imageColor16 === millColor || imageColor16 === None)
+          ) {
+          } else if (
+            hasPiece12 === false &&
+            clickStatus12 === true &&
+            imageColor16 !== None &&
+            imageColor12 === lightgreen
+          ) {
+            setImageColor12(imageColor16);
+            setImageColor16(None);
+            setHasPiece16(false);
+            setHasPiece12(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled2(false);
+            setHasMilled6(false);
+            setClickStatus16(false);
+            setClickStatus12(false);
+          } else if (
+            hasPiece17 === false &&
+            clickStatus17 === true &&
+            imageColor16 !== None &&
+            imageColor17 === lightgreen
+          ) {
+            setImageColor17(imageColor16);
+            setImageColor16(None);
+            setHasPiece16(false);
+            setHasPiece17(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled2(false);
+            setHasMilled6(false);
+            setClickStatus16(false);
+            setClickStatus17(false);
+          }
+          if (imageColor12 === lightgreen && imageColor17 === lightgreen) {
+            setImageColor12(None);
+            setImageColor16(imageColor16);
+            setImageColor17(None);
+            setClickStatus12(false);
+            setHasPiece12(false);
+            setClickStatus17(false);
+            setHasPiece17(false);
+          }
+        } else {
         }
       };
       return (
@@ -3465,6 +3601,7 @@ function App() {
       clickStatus17 === true &&
       hasMilled6 === false &&
       hasMilled11 === false &&
+      roundColor === imageColor17 &&
       imageColor17 !== (millColor && None)
     ) {
       if (imageColor17 === Red) {
@@ -3556,104 +3693,119 @@ function App() {
         } else if (imageColor17 === green) {
           setImageColor17(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor17 === millColor || imageColor17 === None)
-        ) {
-        } else if (
-          hasPiece16 === false &&
-          clickStatus16 === true &&
-          imageColor17 !== None &&
-          imageColor16 === lightgreen
-        ) {
-          setImageColor16(imageColor17);
-          setImageColor17(None);
-          setHasPiece17(false);
-          setHasPiece16(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled6(false);
-          setClickStatus17(false);
-          setClickStatus16(false);
-        } else if (
-          hasPiece18 === false &&
-          clickStatus18 === true &&
-          imageColor17 !== None &&
-          imageColor18 === lightgreen
-        ) {
-          setImageColor18(imageColor17);
-          setImageColor17(None);
-          setHasPiece17(false);
-          setHasPiece18(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled6(false);
-          setClickStatus17(false);
-          setClickStatus18(false);
-        } else if (
-          hasPiece20 === false &&
-          clickStatus20 === true &&
-          imageColor17 !== None &&
-          imageColor20 === lightgreen
-        ) {
-          setImageColor20(imageColor17);
-          setImageColor17(None);
-          setHasPiece17(false);
-          setHasPiece20(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled6(false);
-          setClickStatus17(false);
-          setClickStatus20(false);
-        }
-        if (
-          imageColor20 === lightgreen &&
-          imageColor16 === lightgreen &&
-          imageColor18 === lightgreen
-        ) {
-          setImageColor20(None);
-          setImageColor17(imageColor17);
-          setImageColor16(None);
-          setImageColor18(None);
+        if (roundColor === imageColor17) {
+          if (
+            millStatus === true &&
+            (imageColor17 === millColor || imageColor17 === None)
+          ) {
+          } else if (
+            hasPiece16 === false &&
+            clickStatus16 === true &&
+            imageColor17 !== None &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor16(imageColor17);
+            setImageColor17(None);
+            setHasPiece17(false);
+            setHasPiece16(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled6(false);
+            setClickStatus17(false);
+            setClickStatus16(false);
+          } else if (
+            hasPiece18 === false &&
+            clickStatus18 === true &&
+            imageColor17 !== None &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor18(imageColor17);
+            setImageColor17(None);
+            setHasPiece17(false);
+            setHasPiece18(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled6(false);
+            setClickStatus17(false);
+            setClickStatus18(false);
+          } else if (
+            hasPiece20 === false &&
+            clickStatus20 === true &&
+            imageColor17 !== None &&
+            imageColor20 === lightgreen
+          ) {
+            setImageColor20(imageColor17);
+            setImageColor17(None);
+            setHasPiece17(false);
+            setHasPiece20(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled6(false);
+            setClickStatus17(false);
+            setClickStatus20(false);
+          }
+          if (
+            imageColor20 === lightgreen &&
+            imageColor16 === lightgreen &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor20(None);
+            setImageColor17(imageColor17);
+            setImageColor16(None);
+            setImageColor18(None);
 
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus16(false);
-          setHasPiece16(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
-        } else if (imageColor20 === lightgreen && imageColor16 === lightgreen) {
-          setImageColor20(None);
-          setImageColor17(imageColor17);
-          setImageColor16(None);
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus16(false);
-          setHasPiece16(false);
-        } else if (imageColor5 === lightgreen && imageColor18 === lightgreen) {
-          setImageColor20(None);
-          setImageColor17(imageColor17);
-          setImageColor18(None);
-          setClickStatus5(false);
-          setHasPiece5(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
-        } else if (imageColor16 === lightgreen && imageColor18 === lightgreen) {
-          setImageColor18(None);
-          setImageColor17(imageColor17);
-          setImageColor16(None);
-          setClickStatus16(false);
-          setHasPiece16(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
-        } else if (imageColor20 === lightgreen && imageColor18 === lightgreen) {
-          setImageColor18(None);
-          setImageColor17(imageColor17);
-          setImageColor20(None);
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus18(false);
-          setHasPiece18(false);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus16(false);
+            setHasPiece16(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+          } else if (
+            imageColor20 === lightgreen &&
+            imageColor16 === lightgreen
+          ) {
+            setImageColor20(None);
+            setImageColor17(imageColor17);
+            setImageColor16(None);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus16(false);
+            setHasPiece16(false);
+          } else if (
+            imageColor5 === lightgreen &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor20(None);
+            setImageColor17(imageColor17);
+            setImageColor18(None);
+            setClickStatus5(false);
+            setHasPiece5(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+          } else if (
+            imageColor16 === lightgreen &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor18(None);
+            setImageColor17(imageColor17);
+            setImageColor16(None);
+            setClickStatus16(false);
+            setHasPiece16(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+          } else if (
+            imageColor20 === lightgreen &&
+            imageColor18 === lightgreen
+          ) {
+            setImageColor18(None);
+            setImageColor17(imageColor17);
+            setImageColor20(None);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus18(false);
+            setHasPiece18(false);
+          }
+        } else {
         }
       };
       return (
@@ -3672,6 +3824,7 @@ function App() {
       clickStatus18 === true &&
       hasMilled6 === false &&
       hasMilled7 === false &&
+      roundColor === imageColor18 &&
       imageColor18 !== (millColor && None)
     ) {
       if (imageColor18 === Red) {
@@ -3747,50 +3900,53 @@ function App() {
         } else if (imageColor18 === green) {
           setImageColor18(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor18 === millColor || imageColor18 === None)
-        ) {
-        } else if (
-          hasPiece13 === false &&
-          clickStatus13 === true &&
-          imageColor18 !== None &&
-          imageColor13 === lightgreen
-        ) {
-          setImageColor13(imageColor18);
-          setImageColor18(None);
-          setHasPiece18(false);
-          setHasPiece13(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled7(false);
-          setHasMilled6(false);
-          setClickStatus18(false);
-          setClickStatus13(false);
-        } else if (
-          hasPiece17 === false &&
-          clickStatus17 === true &&
-          imageColor18 !== None &&
-          imageColor17 === lightgreen
-        ) {
-          setImageColor17(imageColor18);
-          setImageColor18(None);
-          setHasPiece18(false);
-          setHasPiece17(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled7(false);
-          setHasMilled6(false);
-          setClickStatus18(false);
-          setClickStatus17(false);
-        }
-        if (imageColor13 === lightgreen && imageColor17 === lightgreen) {
-          setImageColor13(None);
-          setImageColor18(imageColor18);
-          setImageColor17(None);
-          setClickStatus13(false);
-          setHasPiece13(false);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus18(false);
+        if (roundColor === imageColor18) {
+          if (
+            millStatus === true &&
+            (imageColor18 === millColor || imageColor18 === None)
+          ) {
+          } else if (
+            hasPiece13 === false &&
+            clickStatus13 === true &&
+            imageColor18 !== None &&
+            imageColor13 === lightgreen
+          ) {
+            setImageColor13(imageColor18);
+            setImageColor18(None);
+            setHasPiece18(false);
+            setHasPiece13(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled7(false);
+            setHasMilled6(false);
+            setClickStatus18(false);
+            setClickStatus13(false);
+          } else if (
+            hasPiece17 === false &&
+            clickStatus17 === true &&
+            imageColor18 !== None &&
+            imageColor17 === lightgreen
+          ) {
+            setImageColor17(imageColor18);
+            setImageColor18(None);
+            setHasPiece18(false);
+            setHasPiece17(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled7(false);
+            setHasMilled6(false);
+            setClickStatus18(false);
+            setClickStatus17(false);
+          }
+          if (imageColor13 === lightgreen && imageColor17 === lightgreen) {
+            setImageColor13(None);
+            setImageColor18(imageColor18);
+            setImageColor17(None);
+            setClickStatus13(false);
+            setHasPiece13(false);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus18(false);
+          }
+        } else {
         }
       };
       return (
@@ -3809,6 +3965,7 @@ function App() {
       clickStatus19 === true &&
       hasMilled10 === false &&
       hasMilled16 === false &&
+      roundColor === imageColor19 &&
       imageColor19 !== (millColor && None)
     ) {
       if (imageColor19 === Red) {
@@ -3885,50 +4042,53 @@ function App() {
         } else if (imageColor19 === green) {
           setImageColor19(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor19 === millColor || imageColor19 === None)
-        ) {
-        } else if (
-          hasPiece11 === false &&
-          clickStatus11 === true &&
-          imageColor19 !== None &&
-          imageColor11 === lightgreen
-        ) {
-          setImageColor11(imageColor19);
-          setImageColor19(None);
-          setHasPiece19(false);
-          setHasPiece11(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled10(false);
-          setHasMilled16(false);
-          setClickStatus19(false);
-          setClickStatus11(false);
-        } else if (
-          hasPiece20 === false &&
-          clickStatus20 === true &&
-          imageColor19 !== None &&
-          imageColor20 === lightgreen
-        ) {
-          setImageColor20(imageColor19);
-          setImageColor19(None);
-          setHasPiece19(false);
-          setHasPiece20(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled10(false);
-          setHasMilled16(false);
-          setClickStatus19(false);
-          setClickStatus20(false);
-        }
-        if (imageColor11 === lightgreen && imageColor20 === lightgreen) {
-          setImageColor11(None);
-          setImageColor19(imageColor19);
-          setImageColor20(None);
-          setClickStatus11(false);
-          setHasPiece11(false);
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus19(false);
+        if (roundColor === imageColor19) {
+          if (
+            millStatus === true &&
+            (imageColor19 === millColor || imageColor19 === None)
+          ) {
+          } else if (
+            hasPiece11 === false &&
+            clickStatus11 === true &&
+            imageColor19 !== None &&
+            imageColor11 === lightgreen
+          ) {
+            setImageColor11(imageColor19);
+            setImageColor19(None);
+            setHasPiece19(false);
+            setHasPiece11(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled10(false);
+            setHasMilled16(false);
+            setClickStatus19(false);
+            setClickStatus11(false);
+          } else if (
+            hasPiece20 === false &&
+            clickStatus20 === true &&
+            imageColor19 !== None &&
+            imageColor20 === lightgreen
+          ) {
+            setImageColor20(imageColor19);
+            setImageColor19(None);
+            setHasPiece19(false);
+            setHasPiece20(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled10(false);
+            setHasMilled16(false);
+            setClickStatus19(false);
+            setClickStatus20(false);
+          }
+          if (imageColor11 === lightgreen && imageColor20 === lightgreen) {
+            setImageColor11(None);
+            setImageColor19(imageColor19);
+            setImageColor20(None);
+            setClickStatus11(false);
+            setHasPiece11(false);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus19(false);
+          }
+        } else {
         }
       };
       return (
@@ -3947,6 +4107,7 @@ function App() {
       clickStatus20 === true &&
       hasMilled10 === false &&
       hasMilled11 === false &&
+      roundColor === imageColor20 &&
       imageColor20 !== (millColor && None)
     ) {
       if (imageColor20 === Red) {
@@ -4051,199 +4212,220 @@ function App() {
         } else if (imageColor20 === green) {
           setImageColor20(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor20 === millColor || imageColor20 === None)
-        ) {
-        } else if (
-          hasPiece19 === false &&
-          clickStatus19 === true &&
-          imageColor20 !== None &&
-          imageColor19 === lightgreen
-        ) {
-          setImageColor19(imageColor20);
-          setImageColor20(None);
-          setHasPiece20(false);
-          setHasMilled10(false);
-          setHasMilled11(false);
-          setHasPiece19(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus20(false);
-          setClickStatus19(false);
-        } else if (
-          hasPiece17 === false &&
-          clickStatus17 === true &&
-          imageColor20 !== None &&
-          imageColor17 === lightgreen
-        ) {
-          setImageColor17(imageColor20);
-          setImageColor20(None);
-          setHasPiece20(false);
-          setHasMilled10(false);
-          setHasMilled11(false);
-          setHasPiece17(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus20(false);
-          setClickStatus17(false);
-        } else if (
-          hasPiece23 === false &&
-          clickStatus23 === true &&
-          imageColor20 !== None &&
-          imageColor23 === lightgreen
-        ) {
-          setImageColor23(imageColor20);
-          setImageColor20(None);
-          setHasPiece20(false);
-          setHasMilled10(false);
-          setHasMilled11(false);
-          setHasPiece23(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus20(false);
-          setClickStatus23(false);
-        } else if (
-          hasPiece21 === false &&
-          clickStatus21 === true &&
-          imageColor20 !== None &&
-          imageColor21 === lightgreen
-        ) {
-          setImageColor21(imageColor20);
-          setImageColor20(None);
-          setHasPiece20(false);
-          setHasMilled10(false);
-          setHasMilled11(false);
-          setHasPiece21(true);
-          setPlayerStatus(playerStatus + 1);
-          setClickStatus20(false);
-          setClickStatus21(false);
-        }
-        if (
-          imageColor17 === lightgreen &&
-          imageColor19 === lightgreen &&
-          imageColor23 === lightgreen &&
-          imageColor21 === lightgreen
-        ) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor19(None);
-          setImageColor23(None);
-          setImageColor21(None);
+        if (roundColor === imageColor20) {
+          if (
+            millStatus === true &&
+            (imageColor20 === millColor || imageColor20 === None)
+          ) {
+          } else if (
+            hasPiece19 === false &&
+            clickStatus19 === true &&
+            imageColor20 !== None &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor19(imageColor20);
+            setImageColor20(None);
+            setHasPiece20(false);
+            setHasMilled10(false);
+            setHasMilled11(false);
+            setHasPiece19(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus20(false);
+            setClickStatus19(false);
+          } else if (
+            hasPiece17 === false &&
+            clickStatus17 === true &&
+            imageColor20 !== None &&
+            imageColor17 === lightgreen
+          ) {
+            setImageColor17(imageColor20);
+            setImageColor20(None);
+            setHasPiece20(false);
+            setHasMilled10(false);
+            setHasMilled11(false);
+            setHasPiece17(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus20(false);
+            setClickStatus17(false);
+          } else if (
+            hasPiece23 === false &&
+            clickStatus23 === true &&
+            imageColor20 !== None &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor23(imageColor20);
+            setImageColor20(None);
+            setHasPiece20(false);
+            setHasMilled10(false);
+            setHasMilled11(false);
+            setHasPiece23(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus20(false);
+            setClickStatus23(false);
+          } else if (
+            hasPiece21 === false &&
+            clickStatus21 === true &&
+            imageColor20 !== None &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor21(imageColor20);
+            setImageColor20(None);
+            setHasPiece20(false);
+            setHasMilled10(false);
+            setHasMilled11(false);
+            setHasPiece21(true);
+            setPlayerStatus(playerStatus + 1);
+            setClickStatus20(false);
+            setClickStatus21(false);
+          }
+          if (
+            imageColor17 === lightgreen &&
+            imageColor19 === lightgreen &&
+            imageColor23 === lightgreen &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor19(None);
+            setImageColor23(None);
+            setImageColor21(None);
 
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-        } else if (
-          imageColor17 === lightgreen &&
-          imageColor19 === lightgreen &&
-          imageColor21 === lightgreen
-        ) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor19(None);
-          setImageColor21(None);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-        } else if (
-          imageColor23 === lightgreen &&
-          imageColor19 === lightgreen &&
-          imageColor21 === lightgreen
-        ) {
-          setImageColor23(None);
-          setImageColor20(imageColor20);
-          setImageColor19(None);
-          setImageColor21(None);
-          setClickStatus23(false);
-          setHasPiece23(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-        } else if (
-          imageColor17 === lightgreen &&
-          imageColor19 === lightgreen &&
-          imageColor23 === lightgreen
-        ) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor19(None);
-          setImageColor23(None);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
-        } else if (
-          imageColor17 === lightgreen &&
-          imageColor21 === lightgreen &&
-          imageColor23 === lightgreen
-        ) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor21(None);
-          setImageColor23(None);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
-        } else if (imageColor17 === lightgreen && imageColor19 === lightgreen) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor19(None);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus19(false);
-          setHasPiece19(false);
-        } else if (imageColor17 === lightgreen && imageColor23 === lightgreen) {
-          setImageColor17(None);
-          setImageColor20(imageColor20);
-          setImageColor23(None);
-          setClickStatus17(false);
-          setHasPiece17(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
-        } else if (imageColor19 === lightgreen && imageColor23 === lightgreen) {
-          setImageColor19(None);
-          setImageColor20(imageColor20);
-          setImageColor23(None);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
-        } else if (imageColor19 === lightgreen && imageColor21 === lightgreen) {
-          setImageColor19(None);
-          setImageColor20(imageColor20);
-          setImageColor21(None);
-          setClickStatus19(false);
-          setHasPiece19(false);
-          setClickStatus21(false);
-          setHasPiece21(false);
-        } else if (imageColor21 === lightgreen && imageColor17 === lightgreen) {
-          setImageColor21(None);
-          setImageColor20(imageColor20);
-          setImageColor17(None);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus17(false);
-          setHasPiece17(false);
-        } else if (imageColor21 === lightgreen && imageColor23 === lightgreen) {
-          setImageColor21(None);
-          setImageColor20(imageColor20);
-          setImageColor23(None);
-          setClickStatus21(false);
-          setHasPiece21(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+          } else if (
+            imageColor17 === lightgreen &&
+            imageColor19 === lightgreen &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor19(None);
+            setImageColor21(None);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+          } else if (
+            imageColor23 === lightgreen &&
+            imageColor19 === lightgreen &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor23(None);
+            setImageColor20(imageColor20);
+            setImageColor19(None);
+            setImageColor21(None);
+            setClickStatus23(false);
+            setHasPiece23(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+          } else if (
+            imageColor17 === lightgreen &&
+            imageColor19 === lightgreen &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor19(None);
+            setImageColor23(None);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          } else if (
+            imageColor17 === lightgreen &&
+            imageColor21 === lightgreen &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor21(None);
+            setImageColor23(None);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          } else if (
+            imageColor17 === lightgreen &&
+            imageColor19 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor19(None);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus19(false);
+            setHasPiece19(false);
+          } else if (
+            imageColor17 === lightgreen &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor17(None);
+            setImageColor20(imageColor20);
+            setImageColor23(None);
+            setClickStatus17(false);
+            setHasPiece17(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          } else if (
+            imageColor19 === lightgreen &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor19(None);
+            setImageColor20(imageColor20);
+            setImageColor23(None);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          } else if (
+            imageColor19 === lightgreen &&
+            imageColor21 === lightgreen
+          ) {
+            setImageColor19(None);
+            setImageColor20(imageColor20);
+            setImageColor21(None);
+            setClickStatus19(false);
+            setHasPiece19(false);
+            setClickStatus21(false);
+            setHasPiece21(false);
+          } else if (
+            imageColor21 === lightgreen &&
+            imageColor17 === lightgreen
+          ) {
+            setImageColor21(None);
+            setImageColor20(imageColor20);
+            setImageColor17(None);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus17(false);
+            setHasPiece17(false);
+          } else if (
+            imageColor21 === lightgreen &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor21(None);
+            setImageColor20(imageColor20);
+            setImageColor23(None);
+            setClickStatus21(false);
+            setHasPiece21(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          }
+        } else {
         }
       };
       return (
@@ -4261,6 +4443,7 @@ function App() {
       clickStatus21 === true &&
       hasMilled10 === false &&
       hasMilled13 === false &&
+      roundColor === imageColor21 &&
       imageColor21 !== (millColor && None)
     ) {
       if (imageColor21 === Red) {
@@ -4337,49 +4520,52 @@ function App() {
         } else if (imageColor21 === green) {
           setImageColor21(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor21 === millColor || imageColor21 === None)
-        ) {
-        } else if (
-          hasPiece14 === false &&
-          clickStatus14 === true &&
-          imageColor21 !== None &&
-          imageColor14 === lightgreen
-        ) {
-          setImageColor14(imageColor21);
-          setImageColor21(None);
-          setHasPiece21(false);
-          setHasPiece14(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled10(false);
-          setHasMilled13(false);
-          setClickStatus21(false);
-          setClickStatus14(false);
-        } else if (
-          hasPiece20 === false &&
-          clickStatus20 === true &&
-          imageColor21 !== None &&
-          imageColor20 === lightgreen
-        ) {
-          setImageColor20(imageColor21);
-          setImageColor21(None);
-          setHasPiece21(false);
-          setHasPiece20(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled10(false);
-          setHasMilled13(false);
-          setClickStatus21(false);
-          setClickStatus20(false);
-        }
-        if (imageColor14 === lightgreen && imageColor20 === lightgreen) {
-          setImageColor14(None);
-          setImageColor21(imageColor21);
-          setImageColor20(None);
-          setClickStatus14(false);
-          setHasPiece14(false);
-          setClickStatus20(false);
-          setHasPiece20(false);
+        if (roundColor === imageColor21) {
+          if (
+            millStatus === true &&
+            (imageColor21 === millColor || imageColor21 === None)
+          ) {
+          } else if (
+            hasPiece14 === false &&
+            clickStatus14 === true &&
+            imageColor21 !== None &&
+            imageColor14 === lightgreen
+          ) {
+            setImageColor14(imageColor21);
+            setImageColor21(None);
+            setHasPiece21(false);
+            setHasPiece14(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled10(false);
+            setHasMilled13(false);
+            setClickStatus21(false);
+            setClickStatus14(false);
+          } else if (
+            hasPiece20 === false &&
+            clickStatus20 === true &&
+            imageColor21 !== None &&
+            imageColor20 === lightgreen
+          ) {
+            setImageColor20(imageColor21);
+            setImageColor21(None);
+            setHasPiece21(false);
+            setHasPiece20(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled10(false);
+            setHasMilled13(false);
+            setClickStatus21(false);
+            setClickStatus20(false);
+          }
+          if (imageColor14 === lightgreen && imageColor20 === lightgreen) {
+            setImageColor14(None);
+            setImageColor21(imageColor21);
+            setImageColor20(None);
+            setClickStatus14(false);
+            setHasPiece14(false);
+            setClickStatus20(false);
+            setHasPiece20(false);
+          }
+        } else {
         }
       };
       return (
@@ -4398,6 +4584,7 @@ function App() {
       clickStatus22 === true &&
       hasMilled4 === false &&
       hasMilled1 === false &&
+      roundColor === imageColor22 &&
       imageColor22 !== (millColor && None)
     ) {
       if (imageColor22 === Red) {
@@ -4474,49 +4661,52 @@ function App() {
         } else if (imageColor22 === green) {
           setImageColor22(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor22 === millColor || imageColor22 === None)
-        ) {
-        } else if (
-          hasPiece10 === false &&
-          clickStatus10 === true &&
-          imageColor22 !== None &&
-          imageColor10 === lightgreen
-        ) {
-          setImageColor10(imageColor22);
-          setImageColor22(None);
-          setHasPiece22(false);
-          setHasPiece10(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled4(false);
-          setClickStatus22(false);
-          setClickStatus10(false);
-        } else if (
-          hasPiece23 === false &&
-          clickStatus23 === true &&
-          imageColor22 !== None &&
-          imageColor23 === lightgreen
-        ) {
-          setImageColor23(imageColor22);
-          setImageColor22(None);
-          setHasPiece22(false);
-          setHasPiece23(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled1(false);
-          setHasMilled4(false);
-          setClickStatus22(false);
-          setClickStatus23(false);
-        }
-        if (imageColor10 === lightgreen && imageColor23 === lightgreen) {
-          setImageColor10(None);
-          setImageColor22(imageColor22);
-          setImageColor23(None);
-          setClickStatus10(false);
-          setHasPiece10(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
+        if (roundColor === imageColor22) {
+          if (
+            millStatus === true &&
+            (imageColor22 === millColor || imageColor22 === None)
+          ) {
+          } else if (
+            hasPiece10 === false &&
+            clickStatus10 === true &&
+            imageColor22 !== None &&
+            imageColor10 === lightgreen
+          ) {
+            setImageColor10(imageColor22);
+            setImageColor22(None);
+            setHasPiece22(false);
+            setHasPiece10(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled4(false);
+            setClickStatus22(false);
+            setClickStatus10(false);
+          } else if (
+            hasPiece23 === false &&
+            clickStatus23 === true &&
+            imageColor22 !== None &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor23(imageColor22);
+            setImageColor22(None);
+            setHasPiece22(false);
+            setHasPiece23(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled1(false);
+            setHasMilled4(false);
+            setClickStatus22(false);
+            setClickStatus23(false);
+          }
+          if (imageColor10 === lightgreen && imageColor23 === lightgreen) {
+            setImageColor10(None);
+            setImageColor22(imageColor22);
+            setImageColor23(None);
+            setClickStatus10(false);
+            setHasPiece10(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          }
+        } else {
         }
       };
       return (
@@ -4534,6 +4724,7 @@ function App() {
       clickStatus23 === true &&
       hasMilled11 === false &&
       hasMilled4 === false &&
+      roundColor === imageColor23 &&
       imageColor23 !== (millColor && None)
     ) {
       if (imageColor23 === Red) {
@@ -4626,96 +4817,108 @@ function App() {
         } else if (imageColor23 === green) {
           setImageColor23(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor23 === millColor || imageColor23 === None)
-        ) {
-        } else if (
-          hasPiece22 === false &&
-          clickStatus22 === true &&
-          imageColor23 !== None &&
-          imageColor22 === lightgreen
-        ) {
-          setImageColor22(imageColor23);
-          setImageColor23(None);
-          setHasPiece23(false);
-          setHasPiece22(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled4(false);
-          setClickStatus23(false);
-          setClickStatus22(false);
-        } else if (
-          hasPiece20 === false &&
-          clickStatus20 === true &&
-          imageColor23 !== None &&
-          imageColor20 === lightgreen
-        ) {
-          setImageColor20(imageColor23);
-          setImageColor23(None);
-          setHasPiece23(false);
-          setHasPiece20(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled4(false);
-          setClickStatus23(false);
-          setClickStatus20(false);
-        } else if (
-          hasPiece24 === false &&
-          clickStatus24 === true &&
-          imageColor23 !== None &&
-          imageColor24 === lightgreen
-        ) {
-          setImageColor24(imageColor23);
-          setImageColor23(None);
-          setHasPiece23(false);
-          setHasPiece24(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled11(false);
-          setHasMilled4(false);
-          setClickStatus23(false);
-          setClickStatus24(false);
-        }
-        if (
-          imageColor22 === lightgreen &&
-          imageColor20 === lightgreen &&
-          imageColor24 === lightgreen
-        ) {
-          setImageColor22(None);
-          setImageColor23(imageColor23);
-          setImageColor20(None);
-          setImageColor24(None);
+        if (roundColor === imageColor23) {
+          if (
+            millStatus === true &&
+            (imageColor23 === millColor || imageColor23 === None)
+          ) {
+          } else if (
+            hasPiece22 === false &&
+            clickStatus22 === true &&
+            imageColor23 !== None &&
+            imageColor22 === lightgreen
+          ) {
+            setImageColor22(imageColor23);
+            setImageColor23(None);
+            setHasPiece23(false);
+            setHasPiece22(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled4(false);
+            setClickStatus23(false);
+            setClickStatus22(false);
+          } else if (
+            hasPiece20 === false &&
+            clickStatus20 === true &&
+            imageColor23 !== None &&
+            imageColor20 === lightgreen
+          ) {
+            setImageColor20(imageColor23);
+            setImageColor23(None);
+            setHasPiece23(false);
+            setHasPiece20(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled4(false);
+            setClickStatus23(false);
+            setClickStatus20(false);
+          } else if (
+            hasPiece24 === false &&
+            clickStatus24 === true &&
+            imageColor23 !== None &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor24(imageColor23);
+            setImageColor23(None);
+            setHasPiece23(false);
+            setHasPiece24(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled11(false);
+            setHasMilled4(false);
+            setClickStatus23(false);
+            setClickStatus24(false);
+          }
+          if (
+            imageColor22 === lightgreen &&
+            imageColor20 === lightgreen &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor23(imageColor23);
+            setImageColor20(None);
+            setImageColor24(None);
 
-          setClickStatus22(false);
-          setHasPiece22(false);
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
-        } else if (imageColor22 === lightgreen && imageColor20 === lightgreen) {
-          setImageColor22(None);
-          setImageColor23(imageColor23);
-          setImageColor20(None);
-          setClickStatus22(false);
-          setHasPiece22(false);
-          setClickStatus20(false);
-          setHasPiece20(false);
-        } else if (imageColor22 === lightgreen && imageColor24 === lightgreen) {
-          setImageColor22(None);
-          setImageColor23(imageColor23);
-          setImageColor24(None);
-          setClickStatus22(false);
-          setHasPiece22(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
-        } else if (imageColor20 === lightgreen && imageColor24 === lightgreen) {
-          setImageColor24(None);
-          setImageColor23(imageColor23);
-          setImageColor20(None);
-          setClickStatus20(false);
-          setHasPiece20(false);
-          setClickStatus24(false);
-          setHasPiece24(false);
+            setClickStatus22(false);
+            setHasPiece22(false);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+          } else if (
+            imageColor22 === lightgreen &&
+            imageColor20 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor23(imageColor23);
+            setImageColor20(None);
+            setClickStatus22(false);
+            setHasPiece22(false);
+            setClickStatus20(false);
+            setHasPiece20(false);
+          } else if (
+            imageColor22 === lightgreen &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor22(None);
+            setImageColor23(imageColor23);
+            setImageColor24(None);
+            setClickStatus22(false);
+            setHasPiece22(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+          } else if (
+            imageColor20 === lightgreen &&
+            imageColor24 === lightgreen
+          ) {
+            setImageColor24(None);
+            setImageColor23(imageColor23);
+            setImageColor20(None);
+            setClickStatus20(false);
+            setHasPiece20(false);
+            setClickStatus24(false);
+            setHasPiece24(false);
+          }
+        } else {
         }
       };
       return (
@@ -4733,6 +4936,7 @@ function App() {
       clickStatus24 === true &&
       hasMilled14 === false &&
       hasMilled4 === false &&
+      roundColor === imageColor24 &&
       imageColor24 !== (millColor && None)
     ) {
       if (imageColor24 === Red) {
@@ -4809,49 +5013,52 @@ function App() {
         } else if (imageColor24 === green) {
           setImageColor24(lightgreen);
         }
-        if (
-          millStatus === true &&
-          (imageColor24 === millColor || imageColor24 === None)
-        ) {
-        } else if (
-          hasPiece15 === false &&
-          clickStatus15 === true &&
-          imageColor24 !== None &&
-          imageColor15 === lightgreen
-        ) {
-          setImageColor15(imageColor24);
-          setImageColor24(None);
-          setHasPiece24(false);
-          setHasPiece15(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled14(false);
-          setHasMilled4(false);
-          setClickStatus24(false);
-          setClickStatus15(false);
-        } else if (
-          hasPiece23 === false &&
-          clickStatus23 === true &&
-          imageColor24 !== None &&
-          imageColor23 === lightgreen
-        ) {
-          setImageColor23(imageColor24);
-          setImageColor24(None);
-          setHasPiece24(false);
-          setHasPiece23(true);
-          setPlayerStatus(playerStatus + 1);
-          setHasMilled14(false);
-          setHasMilled4(false);
-          setClickStatus24(false);
-          setClickStatus23(false);
-        }
-        if (imageColor15 === lightgreen && imageColor23 === lightgreen) {
-          setImageColor15(None);
-          setImageColor24(imageColor24);
-          setImageColor23(None);
-          setClickStatus15(false);
-          setHasPiece15(false);
-          setClickStatus23(false);
-          setHasPiece23(false);
+        if (roundColor === imageColor24) {
+          if (
+            millStatus === true &&
+            (imageColor24 === millColor || imageColor24 === None)
+          ) {
+          } else if (
+            hasPiece15 === false &&
+            clickStatus15 === true &&
+            imageColor24 !== None &&
+            imageColor15 === lightgreen
+          ) {
+            setImageColor15(imageColor24);
+            setImageColor24(None);
+            setHasPiece24(false);
+            setHasPiece15(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled14(false);
+            setHasMilled4(false);
+            setClickStatus24(false);
+            setClickStatus15(false);
+          } else if (
+            hasPiece23 === false &&
+            clickStatus23 === true &&
+            imageColor24 !== None &&
+            imageColor23 === lightgreen
+          ) {
+            setImageColor23(imageColor24);
+            setImageColor24(None);
+            setHasPiece24(false);
+            setHasPiece23(true);
+            setPlayerStatus(playerStatus + 1);
+            setHasMilled14(false);
+            setHasMilled4(false);
+            setClickStatus24(false);
+            setClickStatus23(false);
+          }
+          if (imageColor15 === lightgreen && imageColor23 === lightgreen) {
+            setImageColor15(None);
+            setImageColor24(imageColor24);
+            setImageColor23(None);
+            setClickStatus15(false);
+            setHasPiece15(false);
+            setClickStatus23(false);
+            setHasPiece23(false);
+          }
+        } else {
         }
       };
       return (
@@ -4879,11 +5086,14 @@ function App() {
     }
     if (playerStatus % 2 === 0) {
       setPlayerController(2);
+      setRoundColor(Blue);
       console.log(playerController);
 
       return <div>Player 1, Part {roundStatus}</div>;
     } else {
       setPlayerController(1);
+      setRoundColor(Red);
+
       console.log(playerController);
 
       return <div>Player 2, Part {roundStatus}</div>;
