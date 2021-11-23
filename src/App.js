@@ -148,6 +148,9 @@ function App() {
       setMillColor(imageColor10);
       setMillStatus(true);
       setHasMilled1(true);
+      setClickStatus1(false);
+      setClickStatus10(false);
+      setClickStatus22(false);
       setTableColor("yellow");
     }
     if (
@@ -160,6 +163,9 @@ function App() {
       setHasMilled2(true);
 
       setMillStatus(true);
+      setClickStatus7(false);
+      setClickStatus16(false);
+      setClickStatus12(false);
       setTableColor("yellow");
     }
     if (
@@ -171,6 +177,9 @@ function App() {
       setMillColor(imageColor2);
       setMillStatus(true);
       setTableColor("yellow");
+      setClickStatus1(false);
+      setClickStatus3(false);
+      setClickStatus2(false);
       setHasMilled3(true);
     }
     if (
@@ -182,6 +191,9 @@ function App() {
       setMillColor(imageColor23);
       setMillStatus(true);
       setTableColor("yellow");
+      setClickStatus22(false);
+      setClickStatus24(false);
+      setClickStatus23(false);
       setHasMilled4(true);
     }
     if (
@@ -193,6 +205,9 @@ function App() {
       setMillColor(imageColor8);
       setMillStatus(true);
       setTableColor("yellow");
+      setClickStatus7(false);
+      setClickStatus9(false);
+      setClickStatus8(false);
       setHasMilled5(true);
     }
     if (
@@ -204,6 +219,9 @@ function App() {
       setMillColor(imageColor17);
       setMillStatus(true);
       setTableColor("yellow");
+      setClickStatus16(false);
+      setClickStatus18(false);
+      setClickStatus17(false);
       setHasMilled6(true);
     }
     if (
@@ -215,7 +233,9 @@ function App() {
       setMillColor(imageColor13);
       setMillStatus(true);
       setHasMilled7(true);
-
+      setClickStatus9(false);
+      setClickStatus18(false);
+      setClickStatus13(false);
       setTableColor("yellow");
     }
     if (
@@ -227,7 +247,9 @@ function App() {
       setMillColor(imageColor5);
       setMillStatus(true);
       setHasMilled8(true);
-
+      setClickStatus2(false);
+      setClickStatus8(false);
+      setClickStatus5(false);
       setTableColor("yellow");
     }
     if (
@@ -239,7 +261,9 @@ function App() {
       setMillColor(imageColor5);
       setMillStatus(true);
       setHasMilled9(true);
-
+      setClickStatus4(false);
+      setClickStatus9(false);
+      setClickStatus6(false);
       setTableColor("yellow");
     }
     if (
@@ -251,6 +275,9 @@ function App() {
       setMillColor(imageColor20);
       setHasMilled10(true);
       setMillStatus(true);
+      setClickStatus19(false);
+      setClickStatus21(false);
+      setClickStatus20(false);
       setTableColor("yellow");
     }
     if (
@@ -262,6 +289,9 @@ function App() {
       setMillColor(imageColor20);
       setHasMilled11(true);
       setMillStatus(true);
+      setClickStatus17(false);
+      setClickStatus23(false);
+      setClickStatus20(false);
       setTableColor("yellow");
     }
     if (
@@ -273,6 +303,9 @@ function App() {
       setMillColor(imageColor14);
       setHasMilled12(true);
       setMillStatus(true);
+      setClickStatus13(false);
+      setClickStatus15(false);
+      setClickStatus14(false);
       setTableColor("yellow");
     }
     if (
@@ -284,6 +317,9 @@ function App() {
       setMillColor(imageColor14);
       setHasMilled13(true);
       setMillStatus(true);
+      setClickStatus6(false);
+      setClickStatus21(false);
+      setClickStatus14(false);
       setTableColor("yellow");
     }
     if (
@@ -295,6 +331,9 @@ function App() {
       setMillColor(imageColor15);
       setHasMilled14(true);
       setMillStatus(true);
+      setClickStatus3(false);
+      setClickStatus15(false);
+      setClickStatus24(false);
       setTableColor("yellow");
     }
     if (
@@ -306,6 +345,9 @@ function App() {
       setMillColor(imageColor11);
       setHasMilled15(true);
       setMillStatus(true);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
       setTableColor("yellow");
     }
     if (
@@ -317,6 +359,9 @@ function App() {
       setMillColor(imageColor11);
       setHasMilled16(true);
       setMillStatus(true);
+      setClickStatus4(false);
+      setClickStatus11(false);
+      setClickStatus19(false);
       setTableColor("yellow");
     }
 
