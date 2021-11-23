@@ -149,8 +149,30 @@ function App() {
       setMillStatus(true);
       setHasMilled1(true);
       setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
       setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
       setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -161,11 +183,32 @@ function App() {
     ) {
       setMillColor(imageColor12);
       setHasMilled2(true);
-
-      setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
       setClickStatus7(false);
-      setClickStatus16(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
       setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+      setMillStatus(true);
+
       setTableColor("yellow");
     }
     if (
@@ -176,10 +219,32 @@ function App() {
     ) {
       setMillColor(imageColor2);
       setMillStatus(true);
-      setTableColor("yellow");
       setClickStatus1(false);
-      setClickStatus3(false);
       setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+      setTableColor("yellow");
+
       setHasMilled3(true);
     }
     if (
@@ -189,11 +254,33 @@ function App() {
       hasMilled4 === false
     ) {
       setMillColor(imageColor23);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
       setMillStatus(true);
       setTableColor("yellow");
-      setClickStatus22(false);
-      setClickStatus24(false);
-      setClickStatus23(false);
+
       setHasMilled4(true);
     }
     if (
@@ -203,11 +290,33 @@ function App() {
       hasMilled5 === false
     ) {
       setMillColor(imageColor8);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
       setMillStatus(true);
       setTableColor("yellow");
-      setClickStatus7(false);
-      setClickStatus9(false);
-      setClickStatus8(false);
+
       setHasMilled5(true);
     }
     if (
@@ -217,11 +326,33 @@ function App() {
       hasMilled6 === false
     ) {
       setMillColor(imageColor17);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
       setMillStatus(true);
       setTableColor("yellow");
-      setClickStatus16(false);
-      setClickStatus18(false);
-      setClickStatus17(false);
+
       setHasMilled6(true);
     }
     if (
@@ -231,11 +362,33 @@ function App() {
       hasMilled7 === false
     ) {
       setMillColor(imageColor13);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
       setMillStatus(true);
       setHasMilled7(true);
-      setClickStatus9(false);
-      setClickStatus18(false);
-      setClickStatus13(false);
+
       setTableColor("yellow");
     }
     if (
@@ -245,11 +398,33 @@ function App() {
       imageColor5 !== None
     ) {
       setMillColor(imageColor5);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
       setMillStatus(true);
       setHasMilled8(true);
-      setClickStatus2(false);
-      setClickStatus8(false);
-      setClickStatus5(false);
+
       setTableColor("yellow");
     }
     if (
@@ -260,10 +435,32 @@ function App() {
     ) {
       setMillColor(imageColor5);
       setMillStatus(true);
-      setHasMilled9(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
       setClickStatus4(false);
-      setClickStatus9(false);
+      setClickStatus5(false);
       setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+      setHasMilled9(true);
+
       setTableColor("yellow");
     }
     if (
@@ -274,10 +471,32 @@ function App() {
     ) {
       setMillColor(imageColor20);
       setHasMilled10(true);
-      setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
       setClickStatus19(false);
-      setClickStatus21(false);
       setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+      setMillStatus(true);
+
       setTableColor("yellow");
     }
     if (
@@ -289,9 +508,31 @@ function App() {
       setMillColor(imageColor20);
       setHasMilled11(true);
       setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
       setClickStatus17(false);
-      setClickStatus23(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
       setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -303,9 +544,31 @@ function App() {
       setMillColor(imageColor14);
       setHasMilled12(true);
       setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
       setClickStatus13(false);
-      setClickStatus15(false);
       setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -317,9 +580,31 @@ function App() {
       setMillColor(imageColor14);
       setHasMilled13(true);
       setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
       setClickStatus6(false);
-      setClickStatus21(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
       setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -331,9 +616,31 @@ function App() {
       setMillColor(imageColor15);
       setHasMilled14(true);
       setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
       setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
+      setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
       setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
       setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -345,9 +652,31 @@ function App() {
       setMillColor(imageColor11);
       setHasMilled15(true);
       setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
+      setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
       setClickStatus10(false);
       setClickStatus11(false);
       setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
+      setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+
       setTableColor("yellow");
     }
     if (
@@ -358,10 +687,32 @@ function App() {
     ) {
       setMillColor(imageColor11);
       setHasMilled16(true);
-      setMillStatus(true);
+      setClickStatus1(false);
+      setClickStatus2(false);
+      setClickStatus3(false);
       setClickStatus4(false);
+      setClickStatus5(false);
+      setClickStatus6(false);
+      setClickStatus7(false);
+      setClickStatus8(false);
+      setClickStatus9(false);
+      setClickStatus10(false);
       setClickStatus11(false);
+      setClickStatus12(false);
+      setClickStatus13(false);
+      setClickStatus14(false);
+      setClickStatus15(false);
+      setClickStatus16(false);
+      setClickStatus17(false);
+      setClickStatus18(false);
       setClickStatus19(false);
+      setClickStatus20(false);
+      setClickStatus21(false);
+      setClickStatus22(false);
+      setClickStatus23(false);
+      setClickStatus24(false);
+      setMillStatus(true);
+
       setTableColor("yellow");
     }
 
@@ -5152,7 +5503,7 @@ function App() {
   const finalState = () => {
     return (
       <div>
-        <header className="App-header">9 Man's Morris: Crazy Mills</header>
+        <header className="App-header">9 Man's Morris</header>
         <div class="gameStats">
           <div>Player 1: Blue; Captured {blueRemoved} Men</div>
           <div>Player 2: Red; Captured {redRemoved} Men</div>
@@ -5379,12 +5730,12 @@ function App() {
                 that circle. If you would like to cancel the move, simply click
                 on the man before tapping the green circle. If you form a mill,
                 click on an opponent's man to capture. You cannot capture men in
-                mills.
+                mills. If you form a mill, the screen will turn yellow. You will
+                be able to select a man to capture.
               </div>
               <div>
-                If you form a mill, the screen will turn yellow. You will either
-                be able to select a man to capture, or an event will occur where
-                men will randomly be captured - either yours or the enemies'.
+                Win conditions: If your opponent only has two remaining pieces,
+                or can no longer make any moves, you win.
               </div>
             </div>
           )}
