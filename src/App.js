@@ -799,7 +799,8 @@ function App() {
         } else if (
           imageColor2 === None &&
           millStatus === false &&
-          imageColor1 !== (green || lightgreen)
+          imageColor1 !== (green || lightgreen) &&
+          imageColor1 === roundColor
         ) {
           setImageColor2(green);
         } else if (imageColor1 === green) {
@@ -814,7 +815,8 @@ function App() {
         } else if (
           imageColor10 === None &&
           millStatus === false &&
-          imageColor1 !== (green || lightgreen)
+          imageColor1 !== (green || lightgreen) &&
+          imageColor1 === roundColor
         ) {
           setImageColor10(green);
         } else if (imageColor1 === green) {
@@ -949,7 +951,8 @@ function App() {
         } else if (
           imageColor1 === None &&
           millStatus === false &&
-          imageColor2 !== (green || lightgreen)
+          imageColor2 !== (green || lightgreen) &&
+          imageColor2 === roundColor
         ) {
           setImageColor1(green);
         } else if (imageColor2 === green) {
@@ -964,7 +967,8 @@ function App() {
         } else if (
           imageColor3 === None &&
           millStatus === false &&
-          imageColor2 !== (green || lightgreen)
+          imageColor2 !== (green || lightgreen) &&
+          imageColor2 === roundColor
         ) {
           setImageColor3(green);
         } else if (imageColor2 === green) {
@@ -979,7 +983,8 @@ function App() {
         } else if (
           imageColor5 === None &&
           millStatus === false &&
-          imageColor2 !== (green || lightgreen)
+          imageColor2 !== (green || lightgreen) &&
+          imageColor2 === roundColor
         ) {
           setImageColor5(green);
         } else if (imageColor2 === green) {
@@ -1151,7 +1156,8 @@ function App() {
         } else if (
           imageColor2 === None &&
           millStatus === false &&
-          imageColor3 !== (green || lightgreen)
+          imageColor3 !== (green || lightgreen) &&
+          imageColor3 === roundColor
         ) {
           setImageColor2(green);
         } else if (imageColor3 === green) {
@@ -1166,7 +1172,8 @@ function App() {
         } else if (
           imageColor15 === None &&
           millStatus === false &&
-          imageColor3 !== (green || lightgreen)
+          imageColor3 !== (green || lightgreen) &&
+          imageColor3 === roundColor
         ) {
           setImageColor15(green);
         } else if (imageColor3 === green) {
@@ -1293,7 +1300,8 @@ function App() {
         } else if (
           imageColor5 === None &&
           millStatus === false &&
-          imageColor4 !== (green || lightgreen)
+          imageColor4 !== (green || lightgreen) &&
+          imageColor4 === roundColor
         ) {
           setImageColor5(green);
         } else if (imageColor4 === green) {
@@ -1308,7 +1316,8 @@ function App() {
         } else if (
           imageColor11 === None &&
           millStatus === false &&
-          imageColor4 !== (green || lightgreen)
+          imageColor4 !== (green || lightgreen) &&
+          imageColor4 === roundColor
         ) {
           setImageColor11(green);
         } else if (imageColor4 === green) {
@@ -1435,7 +1444,8 @@ function App() {
         } else if (
           imageColor4 === None &&
           millStatus === false &&
-          imageColor5 !== (green || lightgreen)
+          imageColor5 !== (green || lightgreen) &&
+          imageColor5 === roundColor
         ) {
           setImageColor4(green);
         } else if (imageColor5 === green) {
@@ -1450,7 +1460,8 @@ function App() {
         } else if (
           imageColor2 === None &&
           millStatus === false &&
-          imageColor5 !== (green || lightgreen)
+          imageColor5 !== (green || lightgreen) &&
+          imageColor5 === roundColor
         ) {
           setImageColor2(green);
         } else if (imageColor5 === green) {
@@ -1465,7 +1476,8 @@ function App() {
         } else if (
           imageColor8 === None &&
           millStatus === false &&
-          imageColor5 !== (green || lightgreen)
+          imageColor5 !== (green || lightgreen) &&
+          imageColor5 === roundColor
         ) {
           setImageColor8(green);
         } else if (imageColor5 === green) {
@@ -1479,7 +1491,8 @@ function App() {
         } else if (
           imageColor6 === None &&
           millStatus === false &&
-          imageColor5 !== (green || lightgreen)
+          imageColor5 !== (green || lightgreen) &&
+          imageColor5 === roundColor
         ) {
           setImageColor6(green);
         } else if (imageColor5 === green) {
@@ -1758,7 +1771,8 @@ function App() {
         } else if (
           imageColor5 === None &&
           millStatus === false &&
-          imageColor6 !== (green || lightgreen)
+          imageColor6 !== (green || lightgreen) &&
+          imageColor6 === roundColor
         ) {
           setImageColor5(green);
         } else if (imageColor6 === green) {
@@ -1773,7 +1787,8 @@ function App() {
         } else if (
           imageColor14 === None &&
           millStatus === false &&
-          imageColor6 !== (green || lightgreen)
+          imageColor6 !== (green || lightgreen) &&
+          imageColor6 === roundColor
         ) {
           setImageColor14(green);
         } else if (imageColor6 === green) {
@@ -1900,7 +1915,8 @@ function App() {
         } else if (
           imageColor12 === None &&
           millStatus === false &&
-          imageColor7 !== (green || lightgreen)
+          imageColor7 !== (green || lightgreen) &&
+          imageColor7 === roundColor
         ) {
           setImageColor12(green);
         } else if (imageColor7 === green) {
@@ -1915,7 +1931,8 @@ function App() {
         } else if (
           imageColor8 === None &&
           millStatus === false &&
-          imageColor7 !== (green || lightgreen)
+          imageColor7 !== (green || lightgreen) &&
+          imageColor7 === roundColor
         ) {
           setImageColor8(green);
         } else if (imageColor7 === green) {
@@ -2043,7 +2060,8 @@ function App() {
         } else if (
           imageColor7 === None &&
           millStatus === false &&
-          imageColor8 !== (green || lightgreen)
+          imageColor8 !== (green || lightgreen) &&
+          imageColor8 === roundColor
         ) {
           setImageColor7(green);
         } else if (imageColor8 === green) {
@@ -2058,7 +2076,8 @@ function App() {
         } else if (
           imageColor5 === None &&
           millStatus === false &&
-          imageColor8 !== (green || lightgreen)
+          imageColor8 !== (green || lightgreen) &&
+          imageColor8 === roundColor
         ) {
           setImageColor5(green);
         } else if (imageColor8 === green) {
@@ -2073,7 +2092,8 @@ function App() {
         } else if (
           imageColor9 === None &&
           millStatus === false &&
-          imageColor8 !== (green || lightgreen)
+          imageColor8 !== (green || lightgreen) &&
+          imageColor8 === roundColor
         ) {
           setImageColor9(green);
         } else if (imageColor8 === green) {
@@ -2246,7 +2266,8 @@ function App() {
         } else if (
           imageColor8 === None &&
           millStatus === false &&
-          imageColor9 !== (green || lightgreen)
+          imageColor9 !== (green || lightgreen) &&
+          imageColor9 === roundColor
         ) {
           setImageColor8(green);
         } else if (imageColor9 === green) {
@@ -2261,7 +2282,8 @@ function App() {
         } else if (
           imageColor13 === None &&
           millStatus === false &&
-          imageColor9 !== (green || lightgreen)
+          imageColor9 !== (green || lightgreen) &&
+          imageColor9 === roundColor
         ) {
           setImageColor13(green);
         } else if (imageColor9 === green) {
@@ -2388,7 +2410,8 @@ function App() {
         } else if (
           imageColor1 === None &&
           millStatus === false &&
-          imageColor10 !== (green || lightgreen)
+          imageColor10 !== (green || lightgreen) &&
+          imageColor10 === roundColor
         ) {
           setImageColor1(green);
         } else if (imageColor10 === green) {
@@ -2403,7 +2426,8 @@ function App() {
         } else if (
           imageColor22 === None &&
           millStatus === false &&
-          imageColor10 !== (green || lightgreen)
+          imageColor10 !== (green || lightgreen) &&
+          imageColor10 === roundColor
         ) {
           setImageColor22(green);
         } else if (imageColor10 === green) {
@@ -2418,7 +2442,8 @@ function App() {
         } else if (
           imageColor11 === None &&
           millStatus === false &&
-          imageColor10 !== (green || lightgreen)
+          imageColor10 !== (green || lightgreen) &&
+          imageColor10 === roundColor
         ) {
           setImageColor11(green);
         } else if (imageColor10 === green) {
@@ -2599,7 +2624,8 @@ function App() {
         } else if (
           imageColor10 === None &&
           millStatus === false &&
-          imageColor11 !== (green || lightgreen)
+          imageColor11 !== (green || lightgreen) &&
+          imageColor11 === roundColor
         ) {
           setImageColor10(green);
         } else if (imageColor11 === green) {
@@ -2614,7 +2640,8 @@ function App() {
         } else if (
           imageColor4 === None &&
           millStatus === false &&
-          imageColor11 !== (green || lightgreen)
+          imageColor11 !== (green || lightgreen) &&
+          imageColor11 === roundColor
         ) {
           setImageColor4(green);
         } else if (imageColor11 === green) {
@@ -2629,7 +2656,8 @@ function App() {
         } else if (
           imageColor19 === None &&
           millStatus === false &&
-          imageColor11 !== (green || lightgreen)
+          imageColor11 !== (green || lightgreen) &&
+          imageColor11 === roundColor
         ) {
           setImageColor19(green);
         } else if (imageColor11 === green) {
@@ -2643,7 +2671,8 @@ function App() {
         } else if (
           imageColor12 === None &&
           millStatus === false &&
-          imageColor11 !== (green || lightgreen)
+          imageColor11 !== (green || lightgreen) &&
+          imageColor11 === roundColor
         ) {
           setImageColor12(green);
         } else if (imageColor11 === green) {
@@ -2936,7 +2965,8 @@ function App() {
         } else if (
           imageColor11 === None &&
           millStatus === false &&
-          imageColor12 !== (green || lightgreen)
+          imageColor12 !== (green || lightgreen) &&
+          imageColor12 === roundColor
         ) {
           setImageColor11(green);
         } else if (imageColor12 === green) {
@@ -2951,7 +2981,8 @@ function App() {
         } else if (
           imageColor7 === None &&
           millStatus === false &&
-          imageColor12 !== (green || lightgreen)
+          imageColor12 !== (green || lightgreen) &&
+          imageColor12 === roundColor
         ) {
           setImageColor7(green);
         } else if (imageColor12 === green) {
@@ -2966,7 +2997,8 @@ function App() {
         } else if (
           imageColor16 === None &&
           millStatus === false &&
-          imageColor12 !== (green || lightgreen)
+          imageColor12 !== (green || lightgreen) &&
+          imageColor12 === roundColor
         ) {
           setImageColor16(green);
         } else if (imageColor12 === green) {
@@ -3150,7 +3182,8 @@ function App() {
         } else if (
           imageColor9 === None &&
           millStatus === false &&
-          imageColor13 !== (green || lightgreen)
+          imageColor13 !== (green || lightgreen) &&
+          imageColor13 === roundColor
         ) {
           setImageColor9(green);
         } else if (imageColor13 === green) {
@@ -3165,7 +3198,8 @@ function App() {
         } else if (
           imageColor18 === None &&
           millStatus === false &&
-          imageColor13 !== (green || lightgreen)
+          imageColor13 !== (green || lightgreen) &&
+          imageColor13 === roundColor
         ) {
           setImageColor18(green);
         } else if (imageColor13 === green) {
@@ -3180,7 +3214,8 @@ function App() {
         } else if (
           imageColor14 === None &&
           millStatus === false &&
-          imageColor13 !== (green || lightgreen)
+          imageColor13 !== (green || lightgreen) &&
+          imageColor13 === roundColor
         ) {
           setImageColor14(green);
         } else if (imageColor13 === green) {
@@ -3362,7 +3397,8 @@ function App() {
         } else if (
           imageColor13 === None &&
           millStatus === false &&
-          imageColor14 !== (green || lightgreen)
+          imageColor14 !== (green || lightgreen) &&
+          imageColor14 === roundColor
         ) {
           setImageColor13(green);
         } else if (imageColor14 === green) {
@@ -3377,7 +3413,8 @@ function App() {
         } else if (
           imageColor6 === None &&
           millStatus === false &&
-          imageColor14 !== (green || lightgreen)
+          imageColor14 !== (green || lightgreen) &&
+          imageColor14 === roundColor
         ) {
           setImageColor6(green);
         } else if (imageColor14 === green) {
@@ -3392,7 +3429,8 @@ function App() {
         } else if (
           imageColor21 === None &&
           millStatus === false &&
-          imageColor14 !== (green || lightgreen)
+          imageColor14 !== (green || lightgreen) &&
+          imageColor14 === roundColor
         ) {
           setImageColor21(green);
         } else if (imageColor14 === green) {
@@ -3406,7 +3444,8 @@ function App() {
         } else if (
           imageColor15 === None &&
           millStatus === false &&
-          imageColor14 !== (green || lightgreen)
+          imageColor14 !== (green || lightgreen) &&
+          imageColor14 === roundColor
         ) {
           setImageColor15(green);
         } else if (imageColor14 === green) {
@@ -3701,7 +3740,8 @@ function App() {
         } else if (
           imageColor3 === None &&
           millStatus === false &&
-          imageColor15 !== (green || lightgreen)
+          imageColor15 !== (green || lightgreen) &&
+          imageColor15 === roundColor
         ) {
           setImageColor3(green);
         } else if (imageColor15 === green) {
@@ -3716,7 +3756,8 @@ function App() {
         } else if (
           imageColor14 === None &&
           millStatus === false &&
-          imageColor15 !== (green || lightgreen)
+          imageColor15 !== (green || lightgreen) &&
+          imageColor15 === roundColor
         ) {
           setImageColor14(green);
         } else if (imageColor15 === green) {
@@ -3731,7 +3772,8 @@ function App() {
         } else if (
           imageColor24 === None &&
           millStatus === false &&
-          imageColor15 !== (green || lightgreen)
+          imageColor15 !== (green || lightgreen) &&
+          imageColor15 === roundColor
         ) {
           setImageColor24(green);
         } else if (imageColor15 === green) {
@@ -3912,7 +3954,8 @@ function App() {
         } else if (
           imageColor12 === None &&
           millStatus === false &&
-          imageColor16 !== (green || lightgreen)
+          imageColor16 !== (green || lightgreen) &&
+          imageColor16 === roundColor
         ) {
           setImageColor12(green);
         } else if (imageColor16 === green) {
@@ -3927,7 +3970,8 @@ function App() {
         } else if (
           imageColor17 === None &&
           millStatus === false &&
-          imageColor16 !== (green || lightgreen)
+          imageColor16 !== (green || lightgreen) &&
+          imageColor16 === roundColor
         ) {
           setImageColor17(green);
         } else if (imageColor16 === green) {
@@ -4053,7 +4097,8 @@ function App() {
         } else if (
           imageColor16 === None &&
           millStatus === false &&
-          imageColor17 !== (green || lightgreen)
+          imageColor17 !== (green || lightgreen) &&
+          imageColor17 === roundColor
         ) {
           setImageColor16(green);
         } else if (imageColor17 === green) {
@@ -4068,7 +4113,8 @@ function App() {
         } else if (
           imageColor18 === None &&
           millStatus === false &&
-          imageColor17 !== (green || lightgreen)
+          imageColor17 !== (green || lightgreen) &&
+          imageColor17 === roundColor
         ) {
           setImageColor18(green);
         } else if (imageColor17 === green) {
@@ -4083,7 +4129,8 @@ function App() {
         } else if (
           imageColor20 === None &&
           millStatus === false &&
-          imageColor17 !== (green || lightgreen)
+          imageColor17 !== (green || lightgreen) &&
+          imageColor17 === roundColor
         ) {
           setImageColor20(green);
         } else if (imageColor17 === green) {
@@ -4275,7 +4322,8 @@ function App() {
         } else if (
           imageColor13 === None &&
           millStatus === false &&
-          imageColor18 !== (green || lightgreen)
+          imageColor18 !== (green || lightgreen) &&
+          imageColor18 === roundColor
         ) {
           setImageColor13(green);
         } else if (imageColor18 === green) {
@@ -4290,7 +4338,8 @@ function App() {
         } else if (
           imageColor17 === None &&
           millStatus === false &&
-          imageColor18 !== (green || lightgreen)
+          imageColor18 !== (green || lightgreen) &&
+          imageColor18 === roundColor
         ) {
           setImageColor17(green);
         } else if (imageColor18 === green) {
@@ -4417,7 +4466,8 @@ function App() {
         } else if (
           imageColor11 === None &&
           millStatus === false &&
-          imageColor19 !== (green || lightgreen)
+          imageColor19 !== (green || lightgreen) &&
+          imageColor19 === roundColor
         ) {
           setImageColor11(green);
         } else if (imageColor19 === green) {
@@ -4432,7 +4482,8 @@ function App() {
         } else if (
           imageColor20 === None &&
           millStatus === false &&
-          imageColor19 !== (green || lightgreen)
+          imageColor19 !== (green || lightgreen) &&
+          imageColor19 === roundColor
         ) {
           setImageColor20(green);
         } else if (imageColor19 === green) {
@@ -4558,7 +4609,8 @@ function App() {
         } else if (
           imageColor19 === None &&
           millStatus === false &&
-          imageColor20 !== (green || lightgreen)
+          imageColor20 !== (green || lightgreen) &&
+          imageColor20 === roundColor
         ) {
           setImageColor19(green);
         } else if (imageColor20 === green) {
@@ -4573,7 +4625,8 @@ function App() {
         } else if (
           imageColor17 === None &&
           millStatus === false &&
-          imageColor20 !== (green || lightgreen)
+          imageColor20 !== (green || lightgreen) &&
+          imageColor20 === roundColor
         ) {
           setImageColor17(green);
         } else if (imageColor20 === green) {
@@ -4588,7 +4641,8 @@ function App() {
         } else if (
           imageColor23 === None &&
           millStatus === false &&
-          imageColor20 !== (green || lightgreen)
+          imageColor20 !== (green || lightgreen) &&
+          imageColor20 === roundColor
         ) {
           setImageColor23(green);
         } else if (imageColor20 === green) {
@@ -4602,7 +4656,8 @@ function App() {
         } else if (
           imageColor21 === None &&
           millStatus === false &&
-          imageColor20 !== (green || lightgreen)
+          imageColor20 !== (green || lightgreen) &&
+          imageColor20 === roundColor
         ) {
           setImageColor21(green);
         } else if (imageColor20 === green) {
@@ -4895,7 +4950,8 @@ function App() {
         } else if (
           imageColor14 === None &&
           millStatus === false &&
-          imageColor21 !== (green || lightgreen)
+          imageColor21 !== (green || lightgreen) &&
+          imageColor21 === roundColor
         ) {
           setImageColor14(green);
         } else if (imageColor21 === green) {
@@ -4910,7 +4966,8 @@ function App() {
         } else if (
           imageColor20 === None &&
           millStatus === false &&
-          imageColor21 !== (green || lightgreen)
+          imageColor21 !== (green || lightgreen) &&
+          imageColor21 === roundColor
         ) {
           setImageColor20(green);
         } else if (imageColor21 === green) {
@@ -5036,7 +5093,8 @@ function App() {
         } else if (
           imageColor10 === None &&
           millStatus === false &&
-          imageColor22 !== (green || lightgreen)
+          imageColor22 !== (green || lightgreen) &&
+          imageColor22 === roundColor
         ) {
           setImageColor10(green);
         } else if (imageColor22 === green) {
@@ -5051,7 +5109,8 @@ function App() {
         } else if (
           imageColor23 === None &&
           millStatus === false &&
-          imageColor22 !== (green || lightgreen)
+          imageColor22 !== (green || lightgreen) &&
+          imageColor22 === roundColor
         ) {
           setImageColor23(green);
         } else if (imageColor22 === green) {
@@ -5177,7 +5236,8 @@ function App() {
         } else if (
           imageColor22 === None &&
           millStatus === false &&
-          imageColor23 !== (green || lightgreen)
+          imageColor23 !== (green || lightgreen) &&
+          imageColor23 === roundColor
         ) {
           setImageColor22(green);
         } else if (imageColor23 === green) {
@@ -5192,7 +5252,8 @@ function App() {
         } else if (
           imageColor20 === None &&
           millStatus === false &&
-          imageColor23 !== (green || lightgreen)
+          imageColor23 !== (green || lightgreen) &&
+          imageColor23 === roundColor
         ) {
           setImageColor20(green);
         } else if (imageColor23 === green) {
@@ -5207,7 +5268,8 @@ function App() {
         } else if (
           imageColor24 === None &&
           millStatus === false &&
-          imageColor23 !== (green || lightgreen)
+          imageColor23 !== (green || lightgreen) &&
+          imageColor23 === roundColor
         ) {
           setImageColor24(green);
         } else if (imageColor23 === green) {
@@ -5388,7 +5450,8 @@ function App() {
         } else if (
           imageColor15 === None &&
           millStatus === false &&
-          imageColor24 !== (green || lightgreen)
+          imageColor24 !== (green || lightgreen) &&
+          imageColor24 === roundColor
         ) {
           setImageColor15(green);
         } else if (imageColor24 === green) {
@@ -5403,12 +5466,14 @@ function App() {
         } else if (
           imageColor23 === None &&
           millStatus === false &&
-          imageColor24 !== (green || lightgreen)
+          imageColor24 !== (green || lightgreen) &&
+          imageColor24 === roundColor
         ) {
           setImageColor23(green);
         } else if (imageColor24 === green) {
           setImageColor24(lightgreen);
         }
+
         if (roundColor === imageColor24) {
           if (
             millStatus === true &&
@@ -5467,9 +5532,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   setPlayerStatus(playerStatus + 1);
-  // }, [counter]);
   const Player = () => {
     if (playerStatus > 17) {
       setRoundStatus(2);
@@ -5738,11 +5800,10 @@ function App() {
                 Move your men by tapping their respective circle, and the areas
                 they can move to will be highlighted in green. Tap the green
                 circle to confirm your move, and then tap the man to move him to
-                that circle. If you would like to cancel the move, simply click
-                on the man before tapping the green circle. If you form a mill,
-                click on an opponent's man to capture. You cannot capture men in
-                mills. If you form a mill, the screen will turn yellow. You will
-                be able to select a man to capture.
+                that circle. If you would like to cancel the move, click on your
+                man. If you form a mill, click on an opponent's man to capture.
+                You cannot capture men in mills. If you form a mill, the screen
+                will turn yellow. You will be able to select a man to capture.
               </div>
               <div>
                 Win conditions: If your opponent only has two remaining pieces,
