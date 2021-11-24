@@ -5505,8 +5505,19 @@ function App() {
       <div>
         <header className="App-header">9 Man's Morris</header>
         <div class="gameStats">
-          <div>Player 1: Blue; Captured {blueRemoved} Men</div>
-          <div>Player 2: Red; Captured {redRemoved} Men</div>
+          {blueRemoved === 1 && (
+            <div>Player 1: Blue; Captured {blueRemoved} Man</div>
+          )}
+          {blueRemoved !== 1 && (
+            <div>Player 1: Blue; Captured {blueRemoved} Men</div>
+          )}
+          {redRemoved === 1 && (
+            <div>Player 2: Red; Captured {redRemoved} Man</div>
+          )}
+          {redRemoved !== 1 && (
+            <div>Player 2: Red; Captured {redRemoved} Men</div>
+          )}
+
           <div>
             <Player />
             Move: {playerStatus}
